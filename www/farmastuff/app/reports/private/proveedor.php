@@ -53,12 +53,12 @@ if (isset($_GET['id'])) {
             // Se envía el documento al navegador y se llama al método Footer()  
             $pdf->Output();
         } else {//fin de rowOrden
-            header('location: ../../../views/private/proveedor.html');
+            header('location: ../../../views/private/proveedor.php');
         }
     } else {
-        header('location: ../../../views/private/proveedor.html');
+        header('location: ../../../views/private/proveedor.php');
     }
 } else {
-    header('location: ../../../views/private/proveedor.html');
+    header('location: ../../../views/private/proveedor.php');
 }
 ?>

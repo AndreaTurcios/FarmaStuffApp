@@ -23,41 +23,72 @@
                     <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
                     <a id="logo-container" href="#" class="brand-logo left-align">
                         <i class="material-icons" style="font-style: oblique;"></i>
-                        <a href="../../views/public/index.html" class="right-align"> 
+                        <a href="../../views/public/index.php" class="right-align"> 
                         <font color="#fff9c4" size="5" face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">FarmaStuff</font>
                         </a>
                     </a>
        
-                    
+                    <div id="password-modal" class="modal">
+                        <div class="modal-content">
+                            <h4 class="center-align">Cambiar contraseña</h4>
+                            <form method="post" id="password-form">
+                                <div class="row center-align">
+                                    <label>CLAVE NUEVA</label>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <i class="material-icons prefix">security</i>
+                                        <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate" required/>
+                                        <label for="clave_nueva_1">Clave</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <i class="material-icons prefix">security</i>
+                                        <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate" required/>
+                                        <label for="clave_nueva_2">Confirmar clave</label>
+                                    </div>
+                                </div>
+                                <div class="row center-align">
+                                    <a href="#" class="btn waves-effect grey tooltipped modal-close" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                                    <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i class="material-icons">save</i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>                    
     
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
-                        <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
+                        <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
+                        <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
                        
-                        <li><a href="#name"><span class="white-text name">Usuario: <b>' . $_SESSION['usuariocliente'] . '</b></span></a></li>                        
-                        <li><input type="hidden"  id="users" name="users" value="'. $_SESSION['usuariocliente'] .'"/> </li>                        
-                        <li><a href="login.html" onclick="logOut()">Salir</a></li>
+                        <li><div class="divider"></div></li>
+                        <li><a href="#" class="dropdown-trigger" data-target="dropdowns"><i class="material-icons left">verified_user</i>Cuenta: <b>' . $_SESSION['usuariocliente'] . '</b></a></li>
+                        </li> 
+                       <li><input type="hidden"  id="users" name="users" value="'. $_SESSION['usuariocliente'] .'"/> </li>
+                        <a href="../../app/reports/private/pedidofinal.php? target="_blank" class="btn waves-effect pink tooltipped" data-tooltip="Orden Final"><i class="material-icons">assignment</i></a>   
                     </ul>
     
                     <ul id="nav-mobile" class="sidenav">
-                        <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
-                        <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
-                        <li><a href="../../views/public/login.html" class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                        <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
+                        <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
+                        <li><a href="../../views/public/login.php" class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
                         <hr>
-                        <li><a href="../../views/public/receta.html">Compra con receta</a></li>
-                        <li><a href="../../views/public/recetaConSeguro.html">Compra con seguro</a></li>
+                        <li><a href="../../views/public/receta.php">Compra con receta</a></li>
+                        <li><a href="../../views/public/recetaConSeguro.php">Compra con seguro</a></li>
                         
                         <hr>
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="#!">Medicinal</a></li>
                             <li><a href="#!">Conveniencia</a></li>
                         </ul>
+                        <ul id="dropdowns" class="dropdown-content">
+                         <li><a href="#" onclick="openPasswordDialog()"><i class="material-icons">lock</i>Cambiar clave</a></li>
+                          <li><a href="#" onclick="logOut()"><i class="material-icons">clear</i>Salir</a></li>
+                        </ul>
                         <li>
                             <!-- Dropdown Trigger -->
                             <li><a class="dropdown-trigger btn disabled" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
                         </li>
-                        <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                        <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
+                        <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                        <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
                     </ul>
             </div>
         </nav>
@@ -75,24 +106,24 @@
                             <li><a href="#!">Medicinal</a></li>
                             <li><a href="#!">Conveniencia</a></li>
                             <li class="divider"></li>
-                            <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
+                            <li><a href="../../views/public/ofertas.php">Ofertas</a></li>
                         </ul>
                         <li>
                             <!-- Dropdown Trigger -->
                             <li><a class="dropdown-trigger btn red lighten-2" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
                         </li>
-                        <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
-                        <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                        <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
+                        <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
+                        <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                        <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
                         <!--<li><input type="text" class="searchTerm" placeholder="Buscar producto..."></li>
                         <li><a href="#" class="btn-floating"><i class="material-icons">search</i></a></li>-->
-                        <li><a href="carritoCompras.html" class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
+                        <li><a href="carritoCompras.php" class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
                     </ul>
                     
                     <ul id="nav-mobile" class="sidenav">
-                        <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
-                        <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                        <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
+                        <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
+                        <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                        <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
                     </ul>
                 </center>
             </div>
@@ -136,10 +167,9 @@
                <button type="submit" class="btn waves-effect green tooltipped" data-tooltip="Buscar"><i class="material-icons">check_circle</i></button>
            </div>
        </form>
-
-        <main>
-
-            <br>
+    <main>
+<!-- ---------------------------------------------------------------------------------------------->
+ <br>
 <br>
 <br>
 <br>
@@ -203,10 +233,9 @@
 <br>
 <br>
 <br>
+<!-- ---------------------------------------------------------------------------------------------->
 
-        
 </main>
-<!--Pie del documento-->
 <footer class="page-footer #e57373">
 </div>
     </div>
@@ -251,6 +280,7 @@
 <script type="text/javascript" src="../../resources/js/materialize.min.js"></script>              
 <script src="../../resources/js/init.js"></script>
 <script type="text/javascript" src="../../app/controllers/public/account.js"></script>
+<script type="text/javascript" src="../../app/controllers/public/producto.js"></script>
 
 </body>
 </html>

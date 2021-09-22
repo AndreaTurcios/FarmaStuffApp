@@ -106,7 +106,7 @@ class Dashboard_Page {
                         <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
                         <a id="logo-container" href="#" class="brand-logo left-align">
                             <i class="material-icons" style="font-style: oblique;"></i>
-                            <a href="../../views/public/index.html" class="right-align"> 
+                            <a href="../../views/public/index.php" class="right-align"> 
                             <font color="#fff9c4" size="5" face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">FarmaStuff</font>
                             </a>
                         </a>
@@ -114,34 +114,34 @@ class Dashboard_Page {
                         
         
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
-                            <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
-                            <li><a href="../../views/public/login.html" class="btn white black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                            <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
+                            <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
+                            <li><a href="../../views/public/login.php" class="btn white black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
                         </ul>
         
                         <ul id="nav-mobile" class="sidenav">
-                            <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
-                            <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
-                            <li><a href="../../views/public/login.html" class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                            <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
+                            <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
+                            <li><a href="../../views/public/login.php" class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
                             <hr>
-                            <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
-                            <li><a href="../../views/public/receta.html">Compra con receta</a></li>
-                            <li><a href="../../views/public/recetaConSeguro.html">Compra con seguro</a></li>
+                            <li><a href="../../views/public/ofertas.php">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.php">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.php">Compra con seguro</a></li>
                             
                             <hr>
                             <ul id="dropdown1" class="dropdown-content">
                                 <li><a href="#!">Medicinal</a></li>
                                 <li><a href="#!">Conveniencia</a></li>
                                 <li class="divider"></li>
-                                <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
+                                <li><a href="../../views/public/ofertas.php">Ofertas</a></li>
                             </ul>
                             <li>
                                 <!-- Dropdown Trigger -->
                                 <li><a class="dropdown-trigger btn disabled" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
                             </li>
-                            <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
-                            <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                            <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
+                            <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
                         </ul>
                 </div>
             </nav>
@@ -159,22 +159,22 @@ class Dashboard_Page {
                                 <li><a href="#!">Medicinal</a></li>
                                 <li><a href="#!">Conveniencia</a></li>
                                 <li class="divider"></li>
-                                <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
+                                <li><a href="../../views/public/ofertas.php">Ofertas</a></li>
                             </ul>
                             <li>
                                 <!-- Dropdown Trigger -->
                                 <li><a class="dropdown-trigger btn red lighten-2" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
                             </li>
-                            <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
-                            <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                            <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
-                            <li><a href="carritoCompras.html" class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
+                            <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
+                            <li><a href="carritoCompras.php" class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
                         </ul>
                         
                         <ul id="nav-mobile" class="sidenav">
-                            <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
-                            <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                            <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
+                            <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
                         </ul>
                     </center>
                 </div>
