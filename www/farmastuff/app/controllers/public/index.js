@@ -1,6 +1,11 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
+
 const API_TIPO = 'http://34.125.24.157/app/api/public/tipo.php?action=';
 const API_CLIENTES = 'http://34.125.24.157/app/api/private/cliente.php?action=';
+
+// const API_TIPO = '../../app/api/public/tipo.php?action=';
+// const API_CLIENTES = '../../app/api/private/cliente.php?action=';
+
 //Método que agrega un controlador de eventos cuando el contenido del documento ha sido cargado
 document.addEventListener('DOMContentLoaded', function() {
     //Se declaran las variables necesarias para inicializar los componentes del framework
@@ -17,12 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Se llama a la función que muestra las categorías disponibles.
     readAllCategorias();
 
-    // let params = new URLSearchParams(location.search);
-    // // Se obtienen los datos localizados por medio de las variables.
-    // const ID = params.get('id');
-    // const NAME = params.get('nombre');
-    // // Se llama a la función que muestra los productos de la categoría seleccionada previamente.
-    // readProductosCategoria(ID, NAME);
+    let params = new URLSearchParams(location.search);
+    // Se obtienen los datos localizados por medio de las variables.
+    const ID = params.get('id');
+    const NAME = params.get('nombre');
+    // Se llama a la función que muestra los productos de la categoría seleccionada previamente.
+    readProductosCategorias(ID, NAME);
 }); 
 
 
@@ -57,7 +62,7 @@ function readAllCategorias() {
                     // Se recorre el conjunto de registros devuelto por la API (dataset) fila por fila a través del objeto row.
                     response.dataset.map(function (row) {
                         // Se define una dirección con los datos de cada categoría para mostrar sus productos en otra página web.
-                        url = `productos.php?id=${row.idtipoproducto}&nombre=${row.tipoproducto}`;
+                        url = `productos.html?id=${row.idtipoproducto}&nombre=${row.tipoproducto}`;
                         // Se crean y concatenan las tarjetas con los datos de cada categoría.
                         content += `
                             <div class="col s12 m6 l4">

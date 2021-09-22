@@ -1,4 +1,5 @@
 const API = 'http://34.125.24.157/app/api/public/login.php?action=';
+//const API = '../../app/api/public/login.php?action=';
 
 // Función para mostrar el formulario de editar perfil con los datos del usuario que ha iniciado sesión.
 function openProfileDialog() {
@@ -33,38 +34,42 @@ function openProfileDialog() {
     });
 }
 
-// Método manejador de eventos que se ejecuta cuando se envía el formulario de editar perfil.
-document.getElementById('profile-form').addEventListener('submit', function (event) {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
+// // Método manejador de eventos que se ejecuta cuando se envía el formulario de editar perfil.
+// document.getElementById('profile-form').addEventListener('submit', function (event) {
+//     // Se evita recargar la página web después de enviar el formulario.
+//     event.preventDefault();
 
-    fetch(API + 'editProfile', {
-        method: 'post',
-        body: new FormData(document.getElementById('profile-form'))
-    }).then(function (request) {
-        // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
-        if (request.ok) {
-            request.json().then(function (response) {
-                // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-                if (response.status) {
-                    // Se cierra la caja de dialogo (modal) del formulario.
-                    let instance = M.Modal.getInstance(document.getElementById('profile-modal'));
-                    instance.close();
-                    // Se muestra un mensaje y se direcciona a la página web de bienvenida para actualizar el nombre del usuario en el menú.
-                    sweetAlert(1, response.message, 'main.php');
-                } else {
-                    sweetAlert(2, response.exception, null);
-                }
-            });
-        } else {
-            console.log(request.status + ' ' + request.statusText);
-        }
-    }).catch(function (error) {
-        console.log(error);
-    });
-});
+//     fetch(API + 'editProfile', {
+//         method: 'post',
+//         body: new FormData(document.getElementById('profile-form'))
+//     }).then(function (request) {
+//         // Se verifica si la petición es correcta, de lo contrario se muestra un mensaje indicando el problema.
+//         if (request.ok) {
+//             request.json().then(function (response) {
+//                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+//                 if (response.status) {
+//                     // Se cierra la caja de dialogo (modal) del formulario.
+//                     let instance = M.Modal.getInstance(document.getElementById('profile-modal'));
+//                     instance.close();
+//                     // Se muestra un mensaje y se direcciona a la página web de bienvenida para actualizar el nombre del usuario en el menú.
+//                     sweetAlert(1, response.message, 'main.php');
+//                 } else {
+//                     sweetAlert(2, response.exception, null);
+//                 }
+//             });
+//         } else {
+//             console.log(request.status + ' ' + request.statusText);
+//         }
+//     }).catch(function (error) {
+//         console.log(error);
+//     });
+// });
+
+
 
 // Función para mostrar el formulario de cambiar contraseña del usuario que ha iniciado sesión.
+
+
 function openPasswordDialog() {
     // Se restauran los elementos del formulario.
     document.getElementById('password-form').reset();
@@ -123,7 +128,7 @@ function logOut() {
                     request.json().then(function (response) {
                         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                         if (response.status) {
-                            sweetAlert(1, response.message, 'index.html');
+                            sweetAlert(1, response.message, 'index.php');
                         } else {
                             sweetAlert(2, response.exception, null);
                         }

@@ -1,111 +1,113 @@
 <!doctype html>
-<html lang="es">
+        <html lang="es">
+        
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+            <title>FarmaStuff</title>
+            <!-- CSS  -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="../../resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+            <link href="../../resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+            <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+            <!-- Googlefont -->
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+        </head>
+        
+        <body>
+            <nav class="rgb(202, 104, 104)" role="navigation">
+                <div class="nav-wrapper container nav">
+                    <a class="navbar-brand" href="#">
+                        <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+                        <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
+                        <a id="logo-container" href="#" class="brand-logo left-align">
+                            <i class="material-icons" style="font-style: oblique;"></i>
+                            <a href="../../views/public/index.php" class="right-align"> 
+                            <font color="#fff9c4" size="5" face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">FarmaStuff</font>
+                            </a>
+                        </a>
+        
+                        
+        
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
+                            <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
+                            <li><a href="../../views/public/login.php" class="btn white black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                        </ul>
+        
+                        <ul id="nav-mobile" class="sidenav">
+                            <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
+                            <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
+                            <li><a href="../../views/public/login.php" class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                            <hr>
+                            <li><a href="../../views/public/ofertas.php">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.php">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.php">Compra con seguro</a></li>
+                            
+                            <hr>
+                            <ul id="dropdown1" class="dropdown-content">
+                                <li><a href="#!">Medicinal</a></li>
+                                <li><a href="#!">Conveniencia</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../../views/public/ofertas.php">Ofertas</a></li>
+                            </ul>
+                            <li>
+                                <!-- Dropdown Trigger -->
+                                <li><a class="dropdown-trigger btn disabled" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
+                            </li>
+                            <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
+                        </ul>
+                </div>
+            </nav>
+            <div class="navbars">
+            </div>
+            <div class="navbarsecond">
+            </div>
+        
+            <nav class="red lighten-5" role="navigation">
+                <div class="nav-wrapper container nav">
+                    <center>
+                        <ul class="right hide-on-med-and-down">
+                            <!-- Dropdown Structure -->
+                            <ul id="dropdown1" class="dropdown-content">
+                                <li><a href="#!">Medicinal</a></li>
+                                <li><a href="#!">Conveniencia</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../../views/public/ofertas.php">Ofertas</a></li>
+                            </ul>
+                            <li>
+                                <!-- Dropdown Trigger -->
+                                <li><a class="dropdown-trigger btn red lighten-2" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
+                            </li>
+                            <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
+                            <li><a href="carritoCompras.php" class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
+                        </ul>
+                        
+                        <ul id="nav-mobile" class="sidenav">
+                            <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
+                        </ul>
+                    </center>
+                </div>
+            </nav>
+    <main>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    <title>FarmaStuff</title>
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../../resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="../../resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- Googlefont -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <nav class="rgb(202, 104, 104)" role="navigation">
-        <div class="nav-wrapper container nav">
-            <a class="navbar-brand" href="#">
-                <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
-                <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
-                <a id="logo-container" href="#" class="brand-logo left-align">
-                    <i class="material-icons" style="font-style: oblique;"></i>
-                    <a href="../../views/public/index.html" class="right-align"> 
-                    <font color="#fff9c4" size="5" face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">te odio</font>
-                    </a>
-                </a>
-
-                
-
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
-                    <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
-                    <li><a href="../../views/public/login.html" class="btn white black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
-                </ul>
-
-                <ul id="nav-mobile" class="sidenav">
-                    <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
-                    <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
-                    <li><a href="../../views/public/login.html" class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
-                    <hr>
-                    <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
-                    <li><a href="../../views/public/receta.html">Compra con receta</a></li>
-                    <li><a href="../../views/public/recetaConSeguro.html">Compra con seguro</a></li>
-                    
-                    <hr>
-                    <ul id="dropdown1" class="dropdown-content">
-                        <li><a href="#!">Medicinal</a></li>
-                        <li><a href="#!">Conveniencia</a></li>
-                        <li class="divider"></li>
-                        <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
-                    </ul>
-                    <li>
-                        <!-- Dropdown Trigger -->
-                        <li><a class="dropdown-trigger btn disabled" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
-                    </li>
-                    <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
-                    <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                    <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
-                </ul>
-        </div>
-    </nav>
-    <div class="navbars">
-    </div>
-    <div class="navbarsecond">
-    </div>
-
-    <nav class="red lighten-5" role="navigation">
-        <div class="nav-wrapper container nav">
-            <center>
-                <ul class="right hide-on-med-and-down">
-                    <!-- Dropdown Structure -->
-                    <ul id="dropdown1" class="dropdown-content">
-                        <li><a href="#!">Medicinal</a></li>
-                        <li><a href="#!">Conveniencia</a></li>
-                        <li class="divider"></li>
-                        <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
-                    </ul>
-                    <li>
-                        <!-- Dropdown Trigger -->
-                        <li><a class="dropdown-trigger btn red lighten-2" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
-                    </li>
-                    <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
-                    <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                    <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
-                    <li><input type="text" class="searchTerm" placeholder="Buscar producto..."></li>
-                    <li><a href="#" class="btn-floating"><i class="material-icons">search</i></a></li>
-                    <li><a href="carritoCompras.html" class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
-                </ul>
-                
-                <ul id="nav-mobile" class="sidenav">
-                    <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
-                    <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
-                    <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
-                </ul>
-            </center>
-        </div>
-    </nav>
-    
-            
+<!-- ---------------------------------------------------------------------------------------- -->
 <link href="../../resources/css/login.css" type="text/css" rel="stylesheet" media="screen,projection" />
+<!--<script src="https://www.google.com/recaptcha/api.js"></script>-->
 <div class="container">
     <div class="row">
         <div class="card col s12 m8">
         <form method="post" id="save-form">
         <hr>Registro cliente</hr>
                     <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"/>
+
                     <input class="hide" type="number" id="id_cliente" name="id_cliente"/>
                     <div class="row">
                         <div class="input-field col s12 m6">
@@ -120,17 +122,17 @@
                         </div>
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">email</i>
-                            <input id="correo_clientes" type="email" name="correo_clientes" class="validate" required/>
+                            <input id="correo_clientes" type="email" name="correo_clientes" class="validate"  oncopy="return false" oncut="return false" onpaste="return false" required autocomplete="off"/>
                             <label for="correo_clientes">Correo Cliente</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">phone</i>
-                            <input id="telefono_clientes" type="tel" name="telefono_clientes" class="validate" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" required/>
+                            <input id="telefono_clientes" type="tel" name="telefono_clientes" class="validate" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" oncopy="return false" oncut="return false" onpaste="return false" required autocomplete="off"/>
                             <label for="telefono_clientes">Teléfono Cliente</label>
                         </div>                       
                         <div class="input-field col s12 m6">
                             <i class="material-icons prefix">badge</i>
-                            <input id="dui_clientes" type="text" name="dui_clientes" class="validate" placeholder="00000000-0" required/>
+                            <input id="dui_clientes" type="text" name="dui_clientes" class="validate" placeholder="00000000-0" oncopy="return false" oncut="return false" onpaste="return false" required autocomplete="off"/>
                             <label for="dui_clientes">Dui Cliente</label>
                         </div>
                         <div class="input-field col s12 m6">
@@ -149,9 +151,11 @@
                     <input id="clave" type="password" name="clave" class="validate" required/>
                     <label for="clave">Clave</label>
                 </div>
-            
-               
-                                                 
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">security</i>
+                    <input id="clavef" type="password" name="clavef" class="validate" required/>
+                    <label for="clavef">Confirmar Contraseña</label>
+                </div>                           
                     </div>
                     <div class="row center-align">
                         <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i class="material-icons">save</i></button>
@@ -160,10 +164,10 @@
        </div>
     </div>
 </div>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfpUGccAAAAAFHZ7KrEokJ9dUDy5bR_q_LFY7MU"></script>
 
-      
+<!-- ---------------------------------------------------------------------------------------- -->
 </main>
-<!--Pie del documento-->
 <footer class="page-footer #e57373">
 </div>
     </div>
@@ -208,6 +212,7 @@
 <script type="text/javascript" src="../../resources/js/materialize.min.js"></script>              
 <script src="../../resources/js/init.js"></script>
 <script type="text/javascript" src="../../app/controllers/public/account.js"></script>
+<script type="text/javascript" src="../../app/controllers/public/login.js"></script>
 
 </body>
 </html>
