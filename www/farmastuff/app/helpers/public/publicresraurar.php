@@ -34,7 +34,7 @@ if (isset($_SESSION['idcliente'])) {
                     <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
                     <a id="logo-container" href="#" class="brand-logo left-align">
                         <i class="material-icons" style="font-style: oblique;"></i>
-                        <a href="../../views/public/index.php" class="right-align"> 
+                        <a href="../../views/public/index.html" class="right-align"> 
                         <font color="#fff9c4" size="5" face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">FarmaStuff</font>
                         </a>
                     </a>
@@ -79,7 +79,7 @@ print('
                 <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
                 <a id="logo-container" href="#" class="brand-logo left-align">
                     <i class="material-icons" style="font-style: oblique;"></i>
-                    <a href="../../views/public/index.php" class="right-align"> 
+                    <a href="../../views/public/index.html" class="right-align"> 
                     <font color="#fff9c4" size="5" face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">FarmaStuff</font>
                     </a>
                 </a>
