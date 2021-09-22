@@ -73,8 +73,8 @@ if (isset($_SESSION['idcliente'])) {
                             <!-- Dropdown Trigger -->
                             <li><a class="dropdown-trigger btn disabled" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
                         </li>
-                        <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
-                        <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
+                        <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
+                        <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
                     </ul>
             </div>
         </nav>
