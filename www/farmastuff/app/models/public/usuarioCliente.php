@@ -16,6 +16,23 @@ class usuarioCliente extends Validator
     private $clavecliente = null;
     private $fotocliente = null;
     private $iddepartamento = null;
+    private $usuario = null;
+    private $fecha = null;
+    private $browser = null;
+    private $os = null;
+    private $codigoos = null;
+    private $codigo=null;
+    private $estado = null; 
+
+    public function setEstado($value)
+    {
+        if ($this->validateNaturalNumber($value)) {
+            $this->estado = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function setId($value)
     {
@@ -26,7 +43,15 @@ class usuarioCliente extends Validator
             return false;
         }
     }
-
+    public function setCodigo($value)
+    {
+        if ($this->validateString($value,1,55)) {
+            $this->codigo = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function setNombreCliente($value)
     {
         if ($this->validateAlphanumeric($value, 1, 50)) {
@@ -78,6 +103,15 @@ class usuarioCliente extends Validator
         }
     }
 
+    public function setCodigoo($value)
+    {
+        if ($this->validateString($value,1,55)) {
+            $this->codigoos = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function setCorreoCliente($value)
     {
         if ($this->validateEmail($value, 1, 50)) {
@@ -127,6 +161,59 @@ class usuarioCliente extends Validator
             return false;
         }
     }
+
+    public function setClave($value)
+    {
+        if ($this->validatePassword($value, 1, 50)) {
+            $this->clave = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function setUsuario($value)
+    {
+        if ($this->validateAlphanumeric($value, 1, 50)) {
+            $this->usuario = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setFecha($value)
+    {
+        if ($this->validateString($value,1,55)) {
+            $this->fecha = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setBrowser($value)
+    {
+        if ($this->validateString($value,1,55)) {
+            $this->browser = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function setOs($value)
+    {
+        if ($this->validateString($value,1,55)) {
+            $this->os = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 
     public function getId()
     {
@@ -182,10 +269,45 @@ class usuarioCliente extends Validator
     {
         return $this->iddepartamento;
     }     
+
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    public function getBrowser()
+    {
+        return $this->browser;
+    }
+
+    public function getOs()
+    {
+        return $this->os;
+    }
+
+    public function getEstado()
+    {
+        return $this->estado;
+    }
     
     /*
     *   Métodos para gestionar la cuenta del usuario.
-    */                                                                    
+    */
+    
+    public function createRowHistorial()
+    {       
+        $sql = 'INSERT INTO HistorialSesionesPublicas (usuarioh, browserh, sisoperativo, fecharegistro)
+        VALUES (?,?,?,?)';
+        $params = array($this->usuario, $this->browser, $this->os , $this->fecha);
+        return Database::executeRow($sql, $params);
+    }
+
+
     public function checkUser($usuariocliente)
     {
         $sql = 'SELECT idcliente, correocliente FROM cliente WHERE usuariocliente = ?';
@@ -259,4 +381,48 @@ class usuarioCliente extends Validator
         $params = null;
         return Database::getRows($sql, $params);
     }
+    public function searchRowscorreo($value)
+    {
+        $sql = "SELECT idcliente, nombrecliente, apellidocliente, correocliente ,usuariocliente                            
+                FROM cliente                 
+                WHERE correocliente ILIKE ? ";
+        $params = array("%$value%");
+        return Database::getRow($sql, $params);
+    }
+    public function verificarCodigo()
+    {
+        $sql = "SELECT correodestinatario , codigo
+                from codigorecuperacionpublico
+                Where codigo = ?
+                and codigo=(Select codigo from codigorecuperacionpublico Where idrecuperacion=(Select max(idrecuperacion) from codigorecuperacionpublico )) ";
+        $params = array($this->codigo);
+        return Database::getRow($sql, $params);
+    }
+    public function readCodigoSesiones()
+    {
+        $sql = 'SELECT codigo From verificarsesionespublicas Where codigo = ?  And idvalidar = (Select Max(idvalidar) From verificarsesionespublicas )';
+        $params = array($this->codigoos);
+        return Database::getRow($sql, $params);
+    } 
+    public function saveCodigo()
+    {       
+        $sql = 'INSERT into codigorecuperacionpublico (codigo, correodestinatario) values (? , ?)';
+        $params = array($this->codigo, $this->correocliente);
+        return Database::executeRow($sql, $params);
+    }
+    public function updateCodigo()
+    {   
+        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $sql = 'UPDATE cliente Set clavecliente = ? Where correocliente = (Select correodestinatario from codigorecuperacionpublico Where idrecuperacion = (Select max(idrecuperacion) From codigorecuperacionpublico ))';
+        $params = array($hash);
+        return Database::executeRow($sql, $params);
+    }
+    
+    public function GuardarCodigoValidacion()
+    {       
+        $sql = 'INSERT Into verificarsesionespublicas (codigo, idusuario) values ( ? , ? )';
+        $params = array($this->codigoos, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+  
 }

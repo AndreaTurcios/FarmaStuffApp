@@ -1,4 +1,81 @@
 <?php
+
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+ function getBrowser($user_agent){
+    if(strpos($user_agent, 'MSIE') !== FALSE)
+       return 'Internet explorer';
+     elseif(strpos($user_agent, 'Edge') !== FALSE)
+       return 'Microsoft Edge';
+     elseif(strpos($user_agent, 'Trident') !== FALSE)
+        return 'Internet explorer';
+     elseif(strpos($user_agent, 'Opera Mini') !== FALSE)
+       return "Opera Mini";
+     elseif(strpos($user_agent, 'Opera') || strpos($user_agent, 'OPR') !== FALSE)
+       return "Opera";
+     elseif(strpos($user_agent, 'Firefox') !== FALSE)
+       return 'Mozilla Firefox';
+     elseif(strpos($user_agent, 'Chrome') !== FALSE)
+       return 'Google Chrome';
+     elseif(strpos($user_agent, 'Safari') !== FALSE)
+       return "Safari";
+     else
+       return 'No hemos podido detectar su navegador';
+    } 
+    
+     function getPlatform($user_agent) {
+        $plataformas = array(
+           'Windows 10' => 'Windows NT 10.0+',
+           'Windows 8.1' => 'Windows NT 6.3+',
+           'Windows 8' => 'Windows NT 6.2+',
+           'Windows 7' => 'Windows NT 6.1+',
+           'Windows Vista' => 'Windows NT 6.0+',
+           'Windows XP' => 'Windows NT 5.1+',
+           'Windows 2003' => 'Windows NT 5.2+',
+           'Windows' => 'Windows otros',
+           'iPhone' => 'iPhone',
+           'iPad' => 'iPad',
+           'Mac OS X' => '(Mac OS X+)|(CFNetwork+)',
+           'Mac otros' => 'Macintosh',
+           'Android' => 'Android',
+           'BlackBerry' => 'BlackBerry',
+           'Linux' => 'Linux',
+        );
+        foreach($plataformas as $plataforma=>$pattern){
+           if (preg_match('/(?i)'.$pattern.'/', $user_agent))
+              return $plataforma;
+        }
+        return 'Otras';
+     }
+    
+    
+     $permitted_chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+     function generate_string($input, $strength = 16) {
+         $input_length = strlen($input);
+         $random_string = '';
+         for($i = 0; $i < $strength; $i++) {
+             $random_character = $input[mt_rand(0, $input_length - 1)];
+             $random_string .= $random_character;
+         }
+         return $random_string;
+     }
+
+$codigo = generate_string($permitted_chars, 5);
+//$codigo = password_hash('data', PASSWORD_DEFAULT);
+$date =  date("d") . "-" . date("m") . "-" . date("Y");
+$SO = getPlatform($user_agent);
+$navegador = getBrowser($user_agent);
+$hash = password_hash('data', PASSWORD_DEFAULT);
+
+print('
+        <input id="browser" type="text" name="browser" class="hide"  value="'.$navegador.'"  />
+        <input id="date" type="text" name="date" class="hide" value="'.$date.'" />
+        <input id="os" type="text" name="os" class="hide" value="'.$SO.'" />
+        <input id="validarc" type="text" name="validarc" class="hide" value="'.$codigo.'" />
+        <input id="codigo" type="text" name="codigo" class="hide" value="'.$hash.'" />
+');
+
+
 //Clase para definir las plantillas de las páginas web del sitio privado
 class Dashboard_Page {
     //Método para imprimir el encabezado y establecer el titulo del documento
@@ -91,8 +168,6 @@ class Dashboard_Page {
                             <li><a href="../../views/public/ofertas.php" style="color:black;">Ofertas</a></li>
                             <li><a href="../../views/public/receta.php" style="color:black;">Compra con receta</a></li>
                             <li><a href="../../views/public/recetaConSeguro.php" style="color:black;">Compra con seguro</a></li>
-                            <li><input type="text" class="searchTerm" placeholder="Buscar producto..."></li>
-                            <li><a href="#" class="btn-floating"><i class="material-icons">search</i></a></li>
                             <li><a href="carritoCompras.php" class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
                         </ul>
                         
@@ -109,9 +184,16 @@ class Dashboard_Page {
     //Método para imprimir el pie y establecer el controlador del documento
     public static function footerTemplate($controller) {
         print('
-                </main>
-                <!--Pie del documento-->
-                
+        <div id="terminos" class="modal">
+        <div class="modal-content">
+            <h4 class="center-align">Términos y condiciones</h4>
+            <p>FarmaStuff, , con el fin de aportar valor agregado en la sociedad Salvadoreña, con el firme compromiso de garantizar accesibilidad, eficiencia, disponibilidad, calidad, seguridad y cobertura en la demanda de medicamentos y productos cosméticos del país, siendo un medio necesario para que prevalezca la salud dentro de la población y cumpliendo con el uso racional de los mismos, pone a disposición un canal digital para que el cliente pueda tener mayor facilidad para solicitar y surtir sus medicamentos y/o productos de conveniencia, todo esto cumpliendo los reglamentos y normas establecidas para la responsable dispensación de medicamentos. Farmacia San Nicolás realizará la verificación de las recetas elaboradas por los profesionales autorizados y se reserva el derecho de poder negar despachos de medicinas que no estén acorde a lo autorizado por la DNM y a realizar devoluciones a nuestros clientes cuando sus recetas no coincidan con lo que dicte la ley vigente. El cliente tendrá acceso a la validación y verificación de las mismas a través de nuestro chat en línea antes de ejecutar la solicitud de su pedido, la receta será verificada por un dependiente de farmacia capacitado para la correcta orientación del paciente en la concentración, forma farmacéutica y cantidad especificada en su receta, sin modificar el principio activo prescrito.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close btn waves-effect"><i class="material-icons">done</i></a>
+        </div>
+    </div>
 
                 <footer class="page-footer #e57373">
                 </div>

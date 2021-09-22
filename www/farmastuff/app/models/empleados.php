@@ -1,7 +1,5 @@
 <?php
-
 class Empleados extends Validator{
-    
     private $id = null;
     private $nombreempleado = null;
     private $apellidoempleado = null;
@@ -12,11 +10,66 @@ class Empleados extends Validator{
     private $usuario = null;
     private $clave = null;
     private $idtipoempleado = null;
+    private $codigo = null;
+    
+
+    /*
+    public function generarCodigoRecu($longitudCodigo){
+        //creamos la variable codigo
+        $codigo = "";
+        //caracteres a ser utilizados
+        $caracteres="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $max=strlen($caracteres)-1;
+        for($i=0;$i < $longitudCodigo;$i++)
+        {
+            $codigo.=$caracteres[rand(0,$max)];
+        }
+        return $codigo;
+    }
+
+    public function enviarCorreo($correo, $codigo){
+        $mail = new PHPMailer(true);
+        try {
+            // Configuracion SMTP
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
+            $mail->isSMTP();                                              
+            $mail->Host  = 'smtp.gmail.com';                     
+            $mail->SMTPAuth  = true;                                       
+            $mail->Username  = 'farmastuffsv@gmail.com';                 
+            $mail->Password  = 'jdcsiulxrqwyyqod';	// Contraseña SMTP
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port  = 587;
+            $mail->setFrom("farmastuffsv@gmail.com", "FarmaStuff"); 
+            $mail->addAddress($correo);  
+            $mail->isHTML(true);
+            $mail->Subject = 'Código para confirmar usuario';
+            $mail->Body = 'Estimado cliente, ' .$correo .'gracias por preferirnos. 
+                        Por este medio le enviamos el codígo de verificación para continuar con el proceso de verificación de usuario
+                        El cual es:<b>'.$codigo.'!</b>';
+            $mail->send();
+        } catch (Exception $e) {
+            $this->$correoError = "El mensaje no se ha enviado. Mailer Error: {$mail->ErrorInfo}";
+            return false;
+        }
+    }
+    */
 
     public function setId($value)
     {
         if ($this->validateNaturalNumber($value)) {
             $this->id = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    
+
+    public function setCodigo($value)
+    {
+        if ($this->validateAlphanumeric($value, 1, 50)) {
+            $this->codigo = $value;
             return true;
         } else {
             return false;
@@ -113,6 +166,8 @@ class Empleados extends Validator{
         }
     }
 
+    
+
     public function getId()
     {
         return $this->id;
@@ -161,6 +216,20 @@ class Empleados extends Validator{
     public function getIDTipoEmpleado()
     {
         return $this->idtipoempleado;
+    }
+
+    
+
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    public function autenticacion()
+    {
+        $sql = 'UPDATE empleado set codigo = ? where idempleado = ?';
+        $params = array($this->codigo, $this->id);
+        return Database::getRows($sql, $params);
     }
 
     public function searchRows($value)
@@ -233,6 +302,15 @@ class Empleados extends Validator{
         return Database::executeRow($sql, $params);
     }
 
+    public function updatePassword()
+    { $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $sql = 'UPDATE empleado 
+        SET clave=?
+        WHERE idempleado = ?';
+        $params = array($hash,$this->id);
+        return Database::executeRow($sql, $params);
+    }
+
     public function deleteRow()
     {
         $sql = 'DELETE FROM empleado
@@ -240,4 +318,36 @@ class Empleados extends Validator{
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+	    public function checkUserD($usuario)
+    {
+        $sql = 'SELECT idempleado, correoempleado, idtipoempleado, TO_CHAR(fecharegistro + INTERVAL \'90 days\', \'yyyy-mm-dd\' AS dia_contra)
+         FROM empleado
+        WHERE usuario = ?';
+        $params = array($usuario);
+        if ($data = Database::getRow($sql, $params)) {
+            $this->id = $data['idempleado'];
+            $this->correoempleado = $data['correoempleado'];
+            $this->idtipoempleado  = $data['idtipoempleado'];
+            $this->fecha = $data['dia_contra'];
+            $this->usuario = $usuario;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function changePasswordD()
+    {
+        //Se coloca la zona horaria local ya que en esta parte se quiere obtener la hora del servidor
+        date_default_timezone_set('America/El_Salvador');
+        //Y se obtiene esa fecha para que en el campo se actualice fecharegistro
+        $fecha = date('Y-m-d');
+
+        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $sql = 'UPDATE empleado SET clave = ? , fecharegistro = ? WHERE idempleado = 7';
+        $params = array($hash, $fecha, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+	
 }

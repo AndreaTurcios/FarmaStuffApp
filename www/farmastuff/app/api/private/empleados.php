@@ -7,10 +7,13 @@ if (isset($_GET['action'])) {
     session_start();
     $empleados = new Empleados;
     $result = array('status' => 0, 'message' => null, 'exception' => null);
+    if (isset($_SESSION['idempleado'])) {
         switch ($_GET['action']) {
             case 'readAll':
                 if ($result['dataset'] = $empleados->readAll()) {
                     $result['status'] = 1;
+                    $result['message'] = 'Existe ya un empleado registrado';
+
                 } else {
                     if (Database::getException()) {
                         $result['exception'] = Database::getException();
@@ -96,6 +99,64 @@ if (isset($_GET['action'])) {
                 }
                     
                     break;
+                    case 'updatePassword':
+                        $_POST = $empleados->validateForm($_POST);
+                        if($empleados->setId($_POST['idempleado'])){
+                            if ($empleados->readOne()) {
+                                if ($_POST['clave'] == $_POST['confirmar_clave']) {
+                                    if ($empleados->setClave($_POST['clave'])) {
+                                        if ($empleados->setIDTipoEmpleado($_POST['tipoempleado'])) {   
+                                            if ($empleados->updatePassword()) {
+                                                $result['status'] = 1;
+                                                $result['message'] = 'Contraseña modificada correctamente';
+                                            } else {
+                                                $result['exception'] = Database::getException();
+                                            }  
+                                        }else {
+                                            $result['exception'] ='tipo incorrecto';
+                                        }
+                                    }else {
+                                        $result['exception'] ='Seleccione un tipo empleado';
+                                    }
+                                } else {
+                                    $result['exception'] = $empleados->getPasswordError();
+                                    $result['exception'] = 'Claves diferentes';
+                                }
+                            } else {
+                                $result['exception'] = 'Claves diferentes';
+                            }
+                        }else {
+                            $result['exception'] ='usuario incorrecto';
+                        }
+                        break;
+                
+                
+        case 'changePasswordD':
+            $_POST = $empleados->validateForm($_POST);
+            if ($empleados->setId($_POST['idempleado'])) {
+                if ($empleados->readOne()) {
+                    if ($_POST['clave'] == $_POST['confclacam']) {
+                        if ($empleados->setClave($_POST['clavecam'])) {
+                            if ($empleados->changePasswordD()) {
+                                $result['status'] = 1;
+                                $result['message'] = 'Usuario modificado correctamente';
+                            } else {
+                                $result['exception'] = Database::getException();
+                            }
+                        } else {
+                            $result['exception'] = 'Tipo incorrecto';
+                        }
+                    } else {
+                        $result['exception'] = 'Seleccione un tipo empleado';
+                    }
+                } else {
+                    $result['exception'] = $empleados->getPasswordError();
+                }
+            } else {
+                $result['exception'] = 'Claves diferentes';
+            }
+            break;
+                
                 case 'readOne':
                 if ($empleados->setId($_POST['idempleado'])) {
                     if ($result['dataset'] = $empleados->readOne()) {
@@ -153,7 +214,7 @@ if (isset($_GET['action'])) {
 
                                                                 } else {
                                                                     $result['exception'] = $empleados->getPasswordError();
-                                                                    $result['exception'] = 'Claves diferentes';
+                                                                    //$result['exception'] = 'Claves diferentes';
                                                                 }
                                                             } else {
                                                                 $result['exception'] = 'Claves diferentes';
@@ -203,12 +264,63 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['exception'] = 'Proveedor incorrecto';
                 }
-                break;               
+                break;     
+                
+            case 'register':
+                
+                $_POST = $empleados->validateForm($_POST);
+                if ($empleados->setNombreEmpleado($_POST['nombreempleado'])) {
+                    if ($empleados->setApellidoEmpleado($_POST['apellidoempleado'])) {
+                        if ($empleados->setTelefonoEmpleado($_POST['telefonoempleado'])) {
+                            if ($empleados->setDireccionEmpleado($_POST['direccionempleado'])) {
+                                if ($empleados->setCorreoEmpleado($_POST['correoempleado'])) {
+                                    $empleados->setEstadoEmpleado(1);
+                                    if ($empleados->setUsuario($_POST['usuario'])) {
+                                        if ($_POST['clave'] == $_POST['confclave']) {
+                                            if ($empleados->setClave($_POST['clave'])) {
+                                                $empleados->setIDTipoEmpleado(1);
+                                                if ($empleados->createRow()) {
+                                                    $result['status'] = 1;
+                                                    $result['message'] = 'Empleado registrado correctamente';
+                                                } else {
+                                                    $result['exception'] = Database::getException();
+                                                }
+                                            } else {
+                                                $result['exception'] = $empleados->getPasswordError();
+                                            }
+                                        } else {
+                                            $result['exception'] = 'Claves diferentes';
+                                        }
+                                    } else {
+                                        $result['exception'] = 'Usuario incorrecto';
+                                    }
+                                } else {
+                                    $result['exception'] = 'Correo incorrecto';
+                                }
+                            } else {
+                                $result['exception'] = 'Dirección incorrecta';
+                            }
+                        } else {
+                            $result['exception'] = 'Teléfono incorrecto';
+                        }
+                    } else {
+                        $result['exception'] = 'Apellidos incorrectos';
+                    }
+                } else {
+                    $result['exception'] = 'Nombres incorrectos';
+                }
+                break;
+                
+            default:
+                $result['exception'] = 'Acción no disponible dentro de la sesión';
         }
         // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
         header('content-type: application/json; charset=utf-8');
         // Se imprime el resultado en formato JSON y se retorna al controlador.
         print(json_encode($result));
-} else {   
+    } else {
+        print(json_encode('Acceso denegado'));
+    }
+} else {
     print(json_encode('Recurso no disponible'));
 }

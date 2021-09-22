@@ -4,7 +4,7 @@ class Public_Page {
     //Método para imprimir el encabezado y establecer el titulo del documento
     public static function headerTemplate($title) {
         session_start();
-       
+        self::modals();
 $filename = basename($_SERVER['PHP_SELF']);
 
 if (isset($_SESSION['idcliente'])) {
@@ -45,10 +45,11 @@ if (isset($_SESSION['idcliente'])) {
                         <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
                         <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
                        
-                        <li><a href="#name"><span class="white-text name">Usuario: <b>' . $_SESSION['usuariocliente'] . '</b></span></a></li>                        
-                        <li><input type="hidden"  id="users" name="users" value="'. $_SESSION['usuariocliente'] .'"/> </li>
+                        <li><div class="divider"></div></li>
+                        <li><a href="#" class="dropdown-trigger" data-target="dropdowns"><i class="material-icons left">verified_user</i>Cuenta: <b>' . $_SESSION['usuariocliente'] . '</b></a></li>
+                        </li> 
+                       <li><input type="hidden"  id="users" name="users" value="'. $_SESSION['usuariocliente'] .'"/> </li>
                         <a href="../../app/reports/private/pedidofinal.php? target="_blank" class="btn waves-effect pink tooltipped" data-tooltip="Orden Final"><i class="material-icons">assignment</i></a>   
-                        <li><a href="#" onclick="logOut()">Salir</a></li>
                     </ul>
     
                     <ul id="nav-mobile" class="sidenav">
@@ -63,6 +64,10 @@ if (isset($_SESSION['idcliente'])) {
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="#!">Medicinal</a></li>
                             <li><a href="#!">Conveniencia</a></li>
+                        </ul>
+                        <ul id="dropdowns" class="dropdown-content">
+                         <li><a href="#" onclick="openPasswordDialog()"><i class="material-icons">lock</i>Cambiar clave</a></li>
+                          <li><a href="#" onclick="logOut()"><i class="material-icons">clear</i>Salir</a></li>
                         </ul>
                         <li>
                             <!-- Dropdown Trigger -->
@@ -281,12 +286,12 @@ print('
         </ul>
     </section>
     <form method="post" id="search-form">
-    <div class="input-field col s6">
+    <div class="input-field col s6 m6">
        <i class="material-icons prefix">search</i>
        <input id="search" type="text" name="search" required/>
        <label for="search">Buscador</label>
     </div>
-       <div class="input-field col s6">
+       <div class="input-field col s6 m4">
            <button type="submit" class="btn waves-effect green tooltipped" data-tooltip="Buscar"><i class="material-icons">check_circle</i></button>
        </div>
    </form>
@@ -352,5 +357,38 @@ print('
             </html>
         ');
     }
+    private static function modals()
+    {
+        // Se imprime el código HTML de las cajas de dialogo (modals).
+        print('
+           
+            <div id="password-modal" class="modal">
+                <div class="modal-content">
+                    <h4 class="center-align">Cambiar contraseña</h4>
+                    <form method="post" id="password-form">
+                        <div class="row center-align">
+                            <label>CLAVE NUEVA</label>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">security</i>
+                                <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate" required/>
+                                <label for="clave_nueva_1">Clave</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <i class="material-icons prefix">security</i>
+                                <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate" required/>
+                                <label for="clave_nueva_2">Confirmar clave</label>
+                            </div>
+                        </div>
+                        <div class="row center-align">
+                            <a href="#" class="btn waves-effect grey tooltipped modal-close" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                            <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i class="material-icons">save</i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        ');
+}  
 }
 ?>

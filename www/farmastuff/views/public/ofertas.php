@@ -1,7 +1,7 @@
 <?php
 //Se incluye la plantilla del encabezado para la página web
 include("../../app/helpers/public/plantillaHeader.php");
-?><
+?>
 <br><br>
 
 <div class="container">

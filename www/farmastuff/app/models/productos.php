@@ -325,7 +325,9 @@ class Productos extends Validator{
         $sql ='SELECT nombreproducto, COUNT(existencias) as cantidad
         From productoproveedor
         Inner join productos USING(idproducto)
-        Group by nombreproducto';
+        Group by nombreproducto
+        order by cantidad desc
+        limit 10';
         $params = null;
         return Database::getRows($sql, $params);
 
