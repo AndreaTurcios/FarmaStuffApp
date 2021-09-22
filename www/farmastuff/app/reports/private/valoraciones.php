@@ -54,13 +54,13 @@ if (isset($_GET['id'])) {
             // Se envía el documento al navegador y se llama al método Footer()  
             $pdf->Output();
         } else {//fin de rowOrden
-            header('location: ../../../views/private/empleadoMantenimiento.php');
+            header('location: ../../../views/private/empleadoMantenimiento.html');
         }
         
     } else {
-        header('location: ../../../views/private/empleadoMantenimiento.php');
+        header('location: ../../../views/private/empleadoMantenimiento.html');
     }
 } else {
-    header('location: ../../../views/private/empleadoMantenimiento.php');
+    header('location: ../../../views/private/empleadoMantenimiento.html');
 }
 ?>

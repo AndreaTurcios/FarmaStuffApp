@@ -29,8 +29,8 @@ class Dashboard_Page {
         $filename = basename($_SERVER['PHP_SELF']);
         // Se comprueba si existe una sesión de administrador para mostrar el menú de opciones, de lo contrario se muestra un menú vacío.
         if (isset($_SESSION['idempleado'])) {
-            // Se verifica si la página web actual es diferente a index.php (Iniciar sesión) y a register.php (Crear primer usuario) para no iniciar sesión otra vez, de lo contrario se direcciona a main.php
-            if ($filename != 'login.php' && $filename != 'register.php') {
+            // Se verifica si la página web actual es diferente a index.html (Iniciar sesión) y a register.html (Crear primer usuario) para no iniciar sesión otra vez, de lo contrario se direcciona a main.php
+            if ($filename != 'login.html' && $filename != 'register.html') {
                 // Se llama al método que contiene el código de las cajas de dialogo (modals).
                 //self::modals();
                 // Se imprime el código HTML para el encabezado del documento con el menú de opciones.
@@ -46,13 +46,13 @@ class Dashboard_Page {
                         <i class="material-icons">menu</i>
                         </a>  
                         <ul class="left left hide-on-med-and-down">
-                           <li><a href="index.php"><i class="material-icons left">home</i>Home</a></li>
+                           <li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
                         </ul>                       
                             <ul class="right right hide-on-med-and-down">
-                                <li><a href="homePrivate.php"><i class="material-icons left">check</i>Revisar</a></li>
-                                <li><a href="usuario.php"><i class="material-icons left">desktop_mac</i>Mantenimientos</a></li>
-                                <li><a href="usuarioVentas.php"><i class="material-icons left">assignment</i>Órdenes</a></li>
-                                <li><a href="empleadoMantenimiento.php"><i class="material-icons left">sentiment_very_satisfied</i>Valoraciones</a></li>
+                                <li><a href="homePrivate.html"><i class="material-icons left">check</i>Revisar</a></li>
+                                <li><a href="usuario.html"><i class="material-icons left">desktop_mac</i>Mantenimientos</a></li>
+                                <li><a href="usuarioVentas.html"><i class="material-icons left">assignment</i>Órdenes</a></li>
+                                <li><a href="empleadoMantenimiento.html"><i class="material-icons left">sentiment_very_satisfied</i>Valoraciones</a></li>
                                 <li><a href="#" onclick="logOut()">Cerrar</a></li>                
                             </ul>
                         </div>  
@@ -70,16 +70,16 @@ class Dashboard_Page {
                             
                         </div>
                     <li>
-                        <li class="hide-on-large-only"><a href="index.php"><i class="material-icons left">home</i>Home</a></li>
+                        <li class="hide-on-large-only"><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
                         <div class="divider hide-on-large-only"></div>                                                         
                     </li>                                               
                     </li>                    
                     <li>
-                        <li><a href="empleadoMantenimiento.php"><i class="material-icons left">sentiment_very_satisfied</i>Valoraciones</a></li>                                           
+                        <li><a href="empleadoMantenimiento.html"><i class="material-icons left">sentiment_very_satisfied</i>Valoraciones</a></li>                                           
                     </li>                     
-                        <li><a href="homePrivate.php"><i class="material-icons left">check</i>Revisar</a></li>
-                        <li><a href="usuario.php"><i class="material-icons left">desktop_mac</i>Mantenimiento</a></li>
-                        <li><a href="usuarioVentas.php"><i class="material-icons left">assignment</i>Órdenes</a></li>
+                        <li><a href="homePrivate.html"><i class="material-icons left">check</i>Revisar</a></li>
+                        <li><a href="usuario.html"><i class="material-icons left">desktop_mac</i>Mantenimiento</a></li>
+                        <li><a href="usuarioVentas.html"><i class="material-icons left">assignment</i>Órdenes</a></li>
                         <li>
                         <div class="divider"></div>
                         </li> 
@@ -118,12 +118,12 @@ class Dashboard_Page {
 ');
 
 } else {
-    header('location: index.php');
+    header('location: index.html');
 }
 } else {
-// Se verifica si la página web actual es diferente a index.php (Iniciar sesión) y a register.php (Crear primer usuario) para direccionar a index.php, de lo contrario se muestra un menú vacío.
-if ($filename != 'login.php' && $filename != 'register.php') {
-    header('location: login.php');
+// Se verifica si la página web actual es diferente a index.html (Iniciar sesión) y a register.html (Crear primer usuario) para direccionar a index.php, de lo contrario se muestra un menú vacío.
+if ($filename != 'login.html' && $filename != 'register.html') {
+    header('location: login.html');
 } else {
     // Se imprime el código HTML para el encabezado del documento con un menú vacío cuando sea iniciar sesión o registrar el primer usuario.
     print('
@@ -131,7 +131,7 @@ if ($filename != 'login.php' && $filename != 'register.php') {
             <!--NAVBAR-->
             <nav class="black">
                 <div class="nav-wrapper container">
-                    <a href="login.php" class="brand-logo">FarmaStuff</a>
+                    <a href="login.html" class="brand-logo">FarmaStuff</a>
                     <ul class="right hide-on-med-and-down">
                         <!--<li><a href="badges.html"><i class="material-icons right">exit_to_app</i>Iniciar sesión</a></li>-->
                     </ul>
@@ -184,7 +184,7 @@ public static function footerTemplate($controller)
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Sitio Público</h5>
                         <ul>
-                            <a href="../public/index.php" class="card-title center-align white-text">Ir</a>
+                            <a href="../public/index.html" class="card-title center-align white-text">Ir</a>
                         </ul>
                     </div>
                 </div>
@@ -206,11 +206,11 @@ public static function footerTemplate($controller)
                 if (isset($_SESSION['idtipoempleado'])){
                         switch($_SESSION['idtipoempleado'])) {
                             case 1:
-                                header('location: index.php')
+                                header('location: index.html')
                              break;
 
                              case2:
-                                header('location: index.php')
+                                header('location: index.html')
                             break;
 
                             default: 

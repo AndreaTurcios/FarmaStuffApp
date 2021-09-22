@@ -57,12 +57,12 @@ if (isset($_GET['id'])) {
             // Se envía el documento al navegador y se llama al método Footer()      
             $pdf->Output();
         } else {
-            header('location: ../../../views/private/usuarioVentas.php');
+            header('location: ../../../views/private/usuarioVentas.html');
         }
     } else {
-        header('location: ../../../views/private/usuarioVentas.php');
+        header('location: ../../../views/private/usuarioVentas.html');
     }
 } else {
-    header('location: ../../../views/private/usuarioVentas.php');
+    header('location: ../../../views/private/usuarioVentas.html');
 }
 ?>

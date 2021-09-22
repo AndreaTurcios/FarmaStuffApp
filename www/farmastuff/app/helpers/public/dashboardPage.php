@@ -31,14 +31,14 @@ class Dashboard_Page {
                         <i class="material-icons">menu</i>
                         </a>  
                         <ul class="left left hide-on-med-and-down">
-                           <li><a href="index.php"><i class="material-icons left">home</i>Home</a></li>
+                           <li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
                         </ul>                       
                             <ul class="right right hide-on-med-and-down">
-                                <li><a href="homePrivate.php"><i class="material-icons left">check</i>Revisar</a></li>
-                                <li><a href="usuario.php"><i class="material-icons left">desktop_mac</i>Mantenimientos</a></li>
-                                <li><a href="usuarioVentas.php"><i class="material-icons left">assignment</i>Órdenes</a></li>
-                                <li><a href="empleadoMantenimiento.php"><i class="material-icons left">sentiment_very_satisfied</i>Valoraciones</a></li>
-                                <li><a href="login.php"><i class="material-icons left">highlight_off</i>Cerrar sesión</a></li>
+                                <li><a href="homePrivate.html"><i class="material-icons left">check</i>Revisar</a></li>
+                                <li><a href="usuario.html"><i class="material-icons left">desktop_mac</i>Mantenimientos</a></li>
+                                <li><a href="usuarioVentas.html"><i class="material-icons left">assignment</i>Órdenes</a></li>
+                                <li><a href="empleadoMantenimiento.html"><i class="material-icons left">sentiment_very_satisfied</i>Valoraciones</a></li>
+                                <li><a href="login.html"><i class="material-icons left">highlight_off</i>Cerrar sesión</a></li>
                                                             
                             </ul>
                         </div>  
@@ -56,20 +56,20 @@ class Dashboard_Page {
                             
                         </div>
                     <li>
-                        <li class="hide-on-large-only"><a href="index.php"><i class="material-icons left">home</i>Home</a></li>
+                        <li class="hide-on-large-only"><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
                         <div class="divider hide-on-large-only"></div>                                                         
                     </li>                                               
                     </li>                    
                     <li>
-                        <li><a href="empleadoMantenimiento.php"><i class="material-icons left">sentiment_very_satisfied</i>Valoraciones</a></li>                                           
+                        <li><a href="empleadoMantenimiento.html"><i class="material-icons left">sentiment_very_satisfied</i>Valoraciones</a></li>                                           
                     </li>                         
                     <li>
                         <div class="divider"></div>
                     </li>              
-                        <li><a href="login.php"><i class="material-icons left">highlight_off</i>Cerrar sesión</a></li>      
-                        <li class="hide-on-large-only" ><a href="homePrivate.php"><i class="material-icons left">check</i>Revisar</a></li>
-                        <li class="hide-on-large-only"><a href="usuario.php"><i class="material-icons left">desktop_mac</i>Mantenimiento</a></li>
-                        <li class="hide-on-large-only"><a href="usuarioVentas.php"><i class="material-icons left">assignment</i>Órdenes</a></li>
+                        <li><a href="login.html"><i class="material-icons left">highlight_off</i>Cerrar sesión</a></li>      
+                        <li class="hide-on-large-only" ><a href="homePrivate.html"><i class="material-icons left">check</i>Revisar</a></li>
+                        <li class="hide-on-large-only"><a href="usuario.html"><i class="material-icons left">desktop_mac</i>Mantenimiento</a></li>
+                        <li class="hide-on-large-only"><a href="usuarioVentas.html"><i class="material-icons left">assignment</i>Órdenes</a></li>
                 </ul> 
 
 
@@ -96,7 +96,7 @@ class Dashboard_Page {
                             <div class="col l4 offset-l2 s12">
                                 <h5 class="white-text">Sitio Público</h5>
                                 <ul>
-                                    <a href="../public/index.php" class="card-title center-align white-text">Ir</a>
+                                    <a href="../public/index.html" class="card-title center-align white-text">Ir</a>
                                 </ul>
                             </div>
                         </div>
@@ -123,11 +123,11 @@ class Dashboard_Page {
                 if (isset($_SESSION['idtipoempleado'])){
                         switch($_SESSION['idtipoempleado'])) {
                             case 1:
-                                header('location: index.php')
+                                header('location: index.html')
                              break;
 
                              case2:
-                                header('location: index.php')
+                                header('location: index.html')
                             break;
 
                             default: 
