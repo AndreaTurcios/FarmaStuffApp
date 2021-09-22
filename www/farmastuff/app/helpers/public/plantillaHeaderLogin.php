@@ -114,13 +114,13 @@ class Dashboard_Page {
                         
         
                         <ul class="right hide-on-med-and-down">
-                            <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
+                            <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
                             <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
                             <li><a href="../../views/public/login.php" class="btn white black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
                         </ul>
         
                         <ul id="nav-mobile" class="sidenav">
-                            <li><a href="../../views/public/quienesSomos.php">Conócenos</a></li>
+                            <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
                             <li><a href="../../views/public/sucursales.php">Sucursales</a></li>
                             <li><a href="../../views/public/login.php" class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
                             <hr>
