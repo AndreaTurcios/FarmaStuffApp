@@ -29,7 +29,7 @@ class Dashboard_Page {
         $filename = basename($_SERVER['PHP_SELF']);
         // Se comprueba si existe una sesión de administrador para mostrar el menú de opciones, de lo contrario se muestra un menú vacío.
         if (isset($_SESSION['idempleado'])) {
-            // Se verifica si la página web actual es diferente a index.php (Iniciar sesión) y a register.php (Crear primer usuario) para no iniciar sesión otra vez, de lo contrario se direcciona a main.php
+            // Se verifica si la página web actual es diferente a index.html (Iniciar sesión) y a register.php (Crear primer usuario) para no iniciar sesión otra vez, de lo contrario se direcciona a main.php
             if ($filename != 'login.php' && $filename != 'register.php') {
                 // Se llama al método que contiene el código de las cajas de dialogo (modals).
                 //self::modals();
