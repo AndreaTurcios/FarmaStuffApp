@@ -121,7 +121,7 @@ class Dashboard_Page {
     header('location: index.html');
 }
 } else {
-// Se verifica si la página web actual es diferente a index.html (Iniciar sesión) y a register.html (Crear primer usuario) para direccionar a index.php, de lo contrario se muestra un menú vacío.
+// Se verifica si la página web actual es diferente a index.html (Iniciar sesión) y a register.html (Crear primer usuario) para direccionar a index.html, de lo contrario se muestra un menú vacío.
 if ($filename != 'login.html' && $filename != 'register.html') {
     header('location: login.html');
 } else {
