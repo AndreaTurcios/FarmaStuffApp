@@ -336,7 +336,7 @@ $example_code .= "\n}";
 
             var resetForm = document.createElement("form");
             resetForm.setAttribute("method", "POST");
-            resetForm.setAttribute("path", "index.php");
+            resetForm.setAttribute("path", "index.html");
 
             for (var k in post_params) {
                 var h = document.createElement("input");

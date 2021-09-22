@@ -184,7 +184,7 @@ function searchRowsCodigoValidar(api, form) {
                 // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                 if (response.status) {
                     data = response.dataset;                                        
-                    sweetAlert(1, response.message, 'index.php');
+                    sweetAlert(1, response.message, 'index.html');
                 } else {
                     sweetAlert(2, response.exception, null);
                 }                

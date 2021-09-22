@@ -20,7 +20,7 @@
         <!--NAVBAR-->
         <nav class="blue-grey darken-2">
             <div class="nav-wrapper container">
-                <a href="index.php" class="brand-logo">FarmaStuff</a>
+                <a href="index.html" class="brand-logo">FarmaStuff</a>
                 <ul class="right hide-on-med-and-down">
                 </ul>
             </div>
@@ -112,7 +112,7 @@
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Sitio Público</h5>
                     <ul>
-                        <a href="../public/index.php" class="card-title center-align white-text">Ir</a>
+                        <a href="../public/index.html" class="card-title center-align white-text">Ir</a>
                     </ul>
                 </div>
             </div>
