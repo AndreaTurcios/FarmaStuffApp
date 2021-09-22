@@ -128,7 +128,7 @@ function logOut() {
                     request.json().then(function (response) {
                         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                         if (response.status) {
-                            sweetAlert(1, response.message, 'index.html');
+                            sweetAlert(1, response.message, 'login.html');
                         } else {
                             sweetAlert(2, response.exception, null);
                         }

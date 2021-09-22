@@ -37,7 +37,7 @@ function readProductosCategoria(id, categoria) {
                                 <div class="card hoverable">
                                     <div class="card-image">
                                         <img src="../../resources/img/productos/${row.fotoproducto}" class="materialboxed">
-                                        <a href="detalle.php?id=${row.idproveedorproducto}" class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-tooltip="Ver detalle">
+                                        <a href="detalle.html?id=${row.idproveedorproducto}" class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-tooltip="Ver detalle">
                                             <i class="material-icons">add</i>
                                         </a>
                                     </div>
@@ -95,7 +95,7 @@ function readProductos(id) {
                                 <div class="card hoverable">
                                     <div class="card-image">
                                         <img src="../../resources/img/productos/${row.fotoproducto}" class="materialboxed">
-                                        <a href="detalle.php?id=${row.idproveedorproducto}" class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-tooltip="Ver detalle">
+                                        <a href="detalle.html?id=${row.idproveedorproducto}" class="btn-floating halfway-fab waves-effect waves-light red tooltipped" data-tooltip="Ver detalle">
                                             <i class="material-icons">add</i>
                                         </a>
                                     </div>
