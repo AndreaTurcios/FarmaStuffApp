@@ -128,7 +128,6 @@ function logOut() {
                         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                         if (response.status) {
                             sweetAlert(1, response.message, 'login.html');
-                            sweetAlert(1, response.message, 'index.html');
 
                         } else {
                             sweetAlert(2, response.exception, null);
