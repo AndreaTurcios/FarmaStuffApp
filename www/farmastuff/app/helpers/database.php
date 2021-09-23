@@ -21,6 +21,9 @@ class Database
         $password = 'jkl555';
    
         // Se crea la conexión mediante la extensión PDO y el controlador para PostgreSQL.
+        //header('Access-Control-Allow-Origin: *');
+        //header('Access-Control-Allow_Headers: Origin, X-Requested-With, Content-Type, Accept');
+        //header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
         self::$connection = new PDO('pgsql:host='.$server.';dbname='.$database.';port=5432', $username, $password);
     }
 

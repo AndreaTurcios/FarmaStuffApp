@@ -1,5 +1,6 @@
-const API = 'http://34.125.24.157/app/api/public/login.php?action=';
-//const API = '../../app/api/public/login.php?action=';
+//const API = 'http://34.125.24.157/app/api/public/login.php?action=';
+
+const API = '../../app/api/public/login.php?action=';
 
 // Función para mostrar el formulario de editar perfil con los datos del usuario que ha iniciado sesión.
 function openProfileDialog() {
@@ -129,6 +130,8 @@ function logOut() {
                         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
                         if (response.status) {
                             sweetAlert(1, response.message, 'login.html');
+                            sweetAlert(1, response.message, 'index.html');
+
                         } else {
                             sweetAlert(2, response.exception, null);
                         }

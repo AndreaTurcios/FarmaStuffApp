@@ -1,8 +1,9 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-const API_LOGIN = 'http://34.125.24.157/app/api/public/login.php?action=';
-const API_CORREO = 'http://34.125.24.157/app/api/public/validarcorreo.php';
-// const API_LOGIN = '../../app/api/public/login.php?action=';
-// const API_CORREO = '../../app/api/public/validarcorreo.php';
+// const API_LOGIN = 'http://34.125.24.157/app/api/public/login.php?action=';
+// const API_CORREO = 'http://34.125.24.157/app/api/public/validarcorreo.php';
+
+const API_LOGIN = '../../app/api/public/login.php?action=';
+const API_CORREO = '../../app/api/public/validarcorreo.php';
 
 document.addEventListener('DOMContentLoaded', function () {
     // Se inicializa el componente Tooltip asignado al botón del formulario para que funcione la sugerencia textual.

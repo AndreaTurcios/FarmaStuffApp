@@ -1,5 +1,7 @@
 const API_LOGIN = 'http://34.125.24.157/app/api/public/login.php?action=';
 
+const API_LOGIN = '../../app/api/public/login.php?action=';
+
 document.addEventListener('DOMContentLoaded', function () {     
    
    document.getElementById('pass-form').hidden = true;

@@ -1,4 +1,6 @@
-const API_RECETA = 'http://34.125.24.157/app/api/private/recetas.php?action=';
+//const API_RECETA = 'http://34.125.24.157/app/api/private/recetas.php?action=';
+
+const API_RECETA = '../../app/api/private/recetas.php?action=';
 
 document.getElementById('save-form').addEventListener('submit', function (event) {
     // Se evita recargar la página web después de enviar el formulario.

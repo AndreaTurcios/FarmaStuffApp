@@ -1,4 +1,5 @@
 <?php
+//header('Access-Control-Allow-Origin: *');
 require_once('../../helpers/database.php');
 require_once('../../helpers/validator.php');
 require_once('../../models/public/usuarioCliente.php');
@@ -95,30 +96,30 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Ingrese un valor para enviar dato';
                     }
                 break;
-                case 'logIn':
-                    $_POST = $usuarioCliente->validateForm($_POST);
-                    if ($usuarioCliente->checkUser($_POST['usuariocliente'])) {
-                        if ($usuarioCliente->checkPassword($_POST['clavecliente'])) {
-                            $_SESSION['idcliente'] = $usuarioCliente->getId();
-                            $_SESSION['usuariocliente'] = $usuarioCliente->getUsuarioCliente();
-                            $_SESSION['correocliente'] = $usuarioCliente->getCorreoCliente();
-                            $result['status'] = 1;
-                            $result['message'] = 'Autenticación correcta';
-                        } else {
-                            if (Database::getException()) {
-                                $result['exception'] = Database::getException();
-                            } else {
-                                $result['exception'] = 'Clave incorrecta';
-                            }
-                        }
-                    } else {
-                        if (Database::getException()) {
-                            $result['exception'] = Database::getException();
-                        } else {
-                            $result['exception'] = 'Alias incorrecto';
-                        }                                            
-                    }
-                    break;  
+                // case 'logIn':
+                //     $_POST = $usuarioCliente->validateForm($_POST);
+                //     if ($usuarioCliente->checkUser($_POST['usuariocliente'])) {
+                //         if ($usuarioCliente->checkPassword($_POST['clavecliente'])) {
+                //             $_SESSION['idcliente'] = $usuarioCliente->getId();
+                //             $_SESSION['usuariocliente'] = $usuarioCliente->getUsuarioCliente();
+                //             $_SESSION['correocliente'] = $usuarioCliente->getCorreoCliente();
+                //             $result['status'] = 1;
+                //             $result['message'] = 'Autenticación correcta';
+                //         } else {
+                //             if (Database::getException()) {
+                //                 $result['exception'] = Database::getException();
+                //             } else {
+                //                 $result['exception'] = 'Clave incorrecta';
+                //             }
+                //         }
+                //     } else {
+                //         if (Database::getException()) {
+                //             $result['exception'] = Database::getException();
+                //         } else {
+                //             $result['exception'] = 'Alias incorrecto';
+                //         }                                            
+                //     }
+                //     break;  
                 default:
                     $result['exception'] = 'Acción no disponible dentro de la sesión f';
         }
@@ -149,6 +150,11 @@ if (isset($_GET['action'])) {
                         $result['exception'] = 'Alias incorrecto';
                     }                                            
                 }
+                break;
+                case 'logOut':
+                    unset( $_SESSION['idcliente']);
+                   $result['status'] = 1;
+                   $result['message'] = 'Sesión eliminada correctamente';
                 break;
                 case 'GuardarCodigoValidacion':
                     $_POST = $usuarioCliente->validateForm($_POST);

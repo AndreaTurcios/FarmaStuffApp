@@ -1,4 +1,5 @@
 <?php
+//header('Access-Control-Allow-Origin: *');
 require_once('../../helpers/database.php');
 require_once('../../helpers/validator.php');
 require_once('../../models/tipo.php');
@@ -14,7 +15,7 @@ if (isset($_GET['action'])) {
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'exception' => null);
     // Se compara la acción a realizar según la petición del controlador. 
-    if (isset($_SESSION['idcliente'])) {
+    //if (isset($_SESSION['idcliente'])) {
         $result['session'] = 1;
     switch ($_GET['action']) {
         case 'readAll':
@@ -144,6 +145,6 @@ if (isset($_GET['action'])) {
     header('content-type: application/json; charset=utf-8');
     // Se imprime el resultado en formato JSON y se retorna al controlador.
     print(json_encode($result));
-} else {
-    print(json_encode('Recurso no disponible'));
-}
+// } else {
+//     print(json_encode('Recurso no disponible'));
+// }

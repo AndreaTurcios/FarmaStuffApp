@@ -93,15 +93,15 @@ class orden extends Validator
         $hola = 1;
         $sql = 'SELECT idorden
                 FROM orden
-                WHERE estadoorden = ? AND idcliente = ?';
-        $params = array($this->estado, $_SESSION['idcliente']);
+                WHERE estadoorden = ? AND idcliente = (Select max(idcliente) From cliente) ';
+        $params = array($this->estado);
         if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['idorden'];
             return true;
         } else {
             $sql = 'INSERT INTO orden(fechaenvio,fecharecibo,estadoorden, idcliente,costoenvio,idrepartidor)
-                    VALUES(current_date,current_date,?, ?,?,?)';
-            $params = array($this->estado,$_SESSION['idcliente'],$envio,$hola);
+                    VALUES(current_date,current_date,?,(Select max(idcliente) From cliente) ,?,?)';
+            $params = array($this->estado,$envio,$hola);
             // Se obtiene el ultimo valor insertado en la llave primaria de la tabla pedidos.
             if ($this->id = Database::getLastRow($sql, $params)) {
                 return true;

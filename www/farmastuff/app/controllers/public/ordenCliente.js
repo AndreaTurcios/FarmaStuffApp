@@ -1,4 +1,6 @@
-const API_ORDEN = 'http://34.125.24.157/app/api/public/ordenCliente.php?action=';
+//const API_ORDEN = 'http://34.125.24.157/app/api/public/ordenCliente.php?action=';
+
+const API_ORDEN = '../../app/api/public/ordenCliente.php?action=';
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los productos del carrito de compras para llenar la tabla en la vista.
