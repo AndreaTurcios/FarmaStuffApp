@@ -1,6 +1,6 @@
-//const API_ORDEN = 'http://34.125.24.157/app/api/public/ordenCliente.php?action=';
+const API_ORDEN = 'http://34.125.24.157/app/api/public/ordenCliente.php?action=';
 
-const API_ORDEN = '../../app/api/public/ordenCliente.php?action=';
+//const API_ORDEN = '../../app/api/public/ordenCliente.php?action=';
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {
     // Se llama a la función que obtiene los productos del carrito de compras para llenar la tabla en la vista.
@@ -21,18 +21,23 @@ function readOrderDetail() {
                     let content = '';
                     // Se declara e inicializa una variable para calcular el importe por cada producto.
                     let subtotal = 0;
+                    let subtotal1 = 0;
                     // Se declara e inicializa una variable para ir sumando cada subtotal y obtener el monto final a pagar.
                     let total = 0;
+                    let total1 = 0;
                     // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
                     response.dataset.map(function (row) {
-                        subtotal = row.precioproducto * row.cantidad;
+                        subtotal1 = row.precioproducto * row.cantidad ;
+                        subtotal = row.precioproducto * row.cantidad + 0.50 ;
                         total += subtotal;
+                        total1 += subtotal1;
                         content += `
                             <tr> 
                                 <td>${row.nombreproducto}</td>
                                 <td>${row.precioproducto}</td>
                                 <td>${row.cantidad}</td>
                                 <td>${subtotal.toFixed(2)}</td>
+                                <td>${subtotal1.toFixed(2)}</td>
                                 <td>
                                     <a href="#" onclick="openUpdateDialog(${row.iddetalleorden}, ${row.cantidad})" class="btn waves-effect blue tooltipped" data-tooltip="Cambiar"><i class="material-icons">exposure</i></a>
                                     <a href="#" onclick="openDeleteDialog(${row.iddetalleorden})" class="btn waves-effect red tooltipped" data-tooltip="Remover"><i class="material-icons">remove_shopping_cart</i></a>
@@ -43,7 +48,8 @@ function readOrderDetail() {
                     // Se agregan las filas al cuerpo de la tabla mediante su id para mostrar los registros.
                     document.getElementById('tbody-rows').innerHTML = content;
                     // Se muestra el total a pagar con dos decimales.
-                    document.getElementById('pago').textContent = total.toFixed(2);
+                    document.getElementById('pago').textContent = total1.toFixed(2);
+                    document.getElementById('pago1').textContent = total.toFixed(2);
                     // Se inicializa el componente Tooltip asignado a los enlaces para que funcionen las sugerencias textuales.
                     M.Tooltip.init(document.querySelectorAll('.tooltipped'));
                 } else {
@@ -57,7 +63,6 @@ function readOrderDetail() {
         console.log(error);
     });
 }
-
 // Función para abrir una caja de dialogo (modal) con el formulario de cambiar cantidad de producto.
 function openUpdateDialog(id, quantity) {
     // Se abre la caja de dialogo (modal) que contiene el formulario.

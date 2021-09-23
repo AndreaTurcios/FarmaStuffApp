@@ -1,7 +1,7 @@
 // Constante para establecer la ruta y parámetros de comunicación con la API.
-//const API_TIPO = 'http://34.125.24.157/app/api/public/tipo.php?action=';
+const API_TIPO = 'http://34.125.24.157/app/api/public/tipo.php?action=';
 
-const API_TIPO = '../../app/api/public/tipo.php?action=';
+//const API_TIPO = '../../app/api/public/tipo.php?action=';
 
 // Método manejador de eventos que se ejecuta cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', function () {

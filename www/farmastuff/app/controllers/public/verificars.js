@@ -1,10 +1,6 @@
-// const API_LOGIN = 'http://34.125.24.157/app/api/public/login.php?action=';
-// const API_CORREO = 'http://34.125.24.157/app/api/public/Correo.php';
-// const EMPLEADOS = 'http://34.125.24.157/helpers/recuperacion.php';
-
-const API_LOGIN = '../../app/api/public/login.php?action=';
-const API_CORREO = '../../app/api/public/Correo.php';
-const EMPLEADOS = '../../helpers/recuperacion.php';
+const API_LOGIN = 'http://34.125.24.157/app/api/public/login.php?action=';
+const API_CORREO = 'http://34.125.24.157/app/api/public/Correo.php';
+const EMPLEADOS = 'http://34.125.24.157/helpers/recuperacion.php';
 
 
 document.addEventListener('DOMContentLoaded', function () {   

@@ -1,6 +1,6 @@
 const API_REGISTER = 'http://34.125.24.157/app/api/public/clienteUser.php?action=';
 
-const API_REGISTER = '../../app/api/public/clienteUser.php?action=';
+//const API_REGISTER = '../../app/api/public/clienteUser.php?action=';
 
 document.addEventListener('DOMContentLoaded', function () {
     reCAPTCHA();

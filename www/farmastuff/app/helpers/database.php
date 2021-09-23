@@ -18,7 +18,7 @@ class Database
         $server = 'localhost';
         $database = 'dbfarmaceutica';   
         $username = 'postgres';
-        $password = 'jkl555';
+        $password = 'admin';
    
         // Se crea la conexión mediante la extensión PDO y el controlador para PostgreSQL.
         //header('Access-Control-Allow-Origin: *');

@@ -1,6 +1,4 @@
-//const API = 'http://34.125.24.157/app/api/public/login.php?action=';
-
-const API = '../../app/api/public/login.php?action=';
+const API = 'http://34.125.24.157/app/api/public/login.php?action=';
 
 // Función para mostrar el formulario de editar perfil con los datos del usuario que ha iniciado sesión.
 function openProfileDialog() {
