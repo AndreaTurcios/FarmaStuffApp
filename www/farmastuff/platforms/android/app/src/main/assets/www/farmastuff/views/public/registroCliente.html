@@ -1,0 +1,232 @@
+<!doctype html>
+        <html lang="es">
+        
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+            <title>FarmaStuff</title>
+            <!-- CSS  -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="../../resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+            <link href="../../resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+            <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+            <!-- Googlefont -->
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+        </head>
+        
+        <body>
+            <nav class="rgb(202, 104, 104)" role="navigation">
+                <div class="nav-wrapper container nav">
+                    <a class="navbar-brand" href="#">
+                        <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+                        <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
+                        <a id="logo-container" href="#" class="brand-logo left-align">
+                            <i class="material-icons" style="font-style: oblique;"></i>
+                            <a href="../../views/public/index.html" class="right-align"> 
+                            <font color="#fff9c4" size="5" face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">FarmaStuff</font>
+                            </a>
+                        </a>
+        
+                        
+        
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
+                            <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
+                            <li><a href="../../views/public/login.html" class="btn white black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                        </ul>
+        
+                        <ul id="nav-mobile" class="sidenav">
+                            <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
+                            <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
+                            <li><a href="../../views/public/login.html" class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                            <hr>
+                            <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.html">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.html">Compra con seguro</a></li>
+                            
+                            <hr>
+                            <ul id="dropdown1" class="dropdown-content">
+                                <li><a href="#!">Medicinal</a></li>
+                                <li><a href="#!">Conveniencia</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
+                            </ul>
+                            <li>
+                                <!-- Dropdown Trigger -->
+                                <li><a class="dropdown-trigger btn disabled" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
+                            </li>
+                            <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
+                        </ul>
+                </div>
+            </nav>
+            <div class="navbars">
+            </div>
+            <div class="navbarsecond">
+            </div>
+        
+            <nav class="red lighten-5" role="navigation">
+                <div class="nav-wrapper container nav">
+                    <center>
+                        <ul class="right hide-on-med-and-down">
+                            <!-- Dropdown Structure -->
+                            <ul id="dropdown1" class="dropdown-content">
+                                <li><a href="#!">Medicinal</a></li>
+                                <li><a href="#!">Conveniencia</a></li>
+                                <li class="divider"></li>
+                                <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
+                            </ul>
+                            <li>
+                                <!-- Dropdown Trigger -->
+                                <li><a class="dropdown-trigger btn red lighten-2" href="#!" data-target="dropdown1">Categorías<i class="material-icons right">arrow_drop_down</i></a></li>
+                            </li>
+                            <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
+                            <li><a href="carritoCompras.html" class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
+                        </ul>
+                        
+                        <ul id="nav-mobile" class="sidenav">
+                            <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
+                            <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
+                            <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a></li>
+                        </ul>
+                    </center>
+                </div>
+            </nav>
+    <main>
+
+<!-- ---------------------------------------------------------------------------------------- -->
+<link href="../../resources/css/login.css" type="text/css" rel="stylesheet" media="screen,projection" />
+<!--<script src="https://www.google.com/recaptcha/api.js"></script>-->
+<div class="container">
+    <div class="row">
+        <div class="card col s12 m8">
+        <form method="post" id="save-form">
+        <hr>Registro cliente</hr>
+                    <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response"/>
+
+                    <input class="hide" type="number" id="id_cliente" name="id_cliente"/>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">person</i>
+                            <input id="nombres_clientes" type="text" name="nombres_clientes"  pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" class="validate" required/>
+                            <label for="nombres_clientes">Nombre Cliente</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">person</i>
+                            <input id="apellidos_clientes" type="text" name="apellidos_clientes" pattern="[a-zA-ZñÑáÁéÉíÍóÓúÚ\s]{1,50}" class="validate" required/>
+                            <label for="apellidos_clientes">Apellido Cliente</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">email</i>
+                            <input id="correo_clientes" type="email" name="correo_clientes" class="validate"  oncopy="return false" oncut="return false" onpaste="return false" required autocomplete="off"/>
+                            <label for="correo_clientes">Correo Cliente</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="telefono_clientes" type="tel" name="telefono_clientes" class="validate" placeholder="0000-0000" pattern="[2,6,7]{1}[0-9]{3}[-][0-9]{4}" oncopy="return false" oncut="return false" onpaste="return false" required autocomplete="off"/>
+                            <label for="telefono_clientes">Teléfono Cliente</label>
+                        </div>                       
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">badge</i>
+                            <input id="dui_clientes" type="text" name="dui_clientes" class="validate" placeholder="00000000-0" oncopy="return false" oncut="return false" onpaste="return false" required autocomplete="off"/>
+                            <label for="dui_clientes">Dui Cliente</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">account_circle</i>                            
+                            <input id="direccion_clientes" type="text" name="direccion_clientes" class="validate" required/>
+                            <label for="direccion_clientes">Direccion</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">account_circle</i>                            
+                            <input id="usuario" type="text" name="usuario" class="validate" required/>
+                            <label for="usuario">Usuario</label>
+                        </div>
+
+                        <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">security</i>
+                    <input id="clave" type="password" name="clave" class="validate" required/>
+                    <label for="clave">Clave</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">security</i>
+                    <input id="clavef" type="password" name="clavef" class="validate" required/>
+                    <label for="clavef">Confirmar Contraseña</label>
+                </div>                           
+                    </div>
+                    <label class="center-align col s12">
+                        <input type="checkbox" id="condicion" name="condicion" required/>
+                            <span>Acepto <a href="#terminos" class="modal-trigger">términos y condiciones</a></span>
+                    </label>
+                    <div class="row center-align">
+                        <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i class="material-icons">save</i></button>
+                    </div>           
+                </form>
+       </div>
+    </div>
+</div>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfpUGccAAAAAFHZ7KrEokJ9dUDy5bR_q_LFY7MU"></script>
+
+<!-- ---------------------------------------------------------------------------------------- -->
+</main>
+<div id="terminos" class="modal">
+    <div class="modal-content">
+        <h4 class="center-align">Términos y condiciones</h4>
+        <p>FarmaStuff, con el fin de aportar valor agregado en la sociedad Salvadoreña, con el firme compromiso de garantizar accesibilidad, eficiencia, disponibilidad, calidad, seguridad y cobertura en la demanda de medicamentos y productos cosméticos del país, siendo un medio necesario para que prevalezca la salud dentro de la población y cumpliendo con el uso racional de los mismos, pone a disposición un canal digital para que el cliente pueda tener mayor facilidad para solicitar y surtir sus medicamentos y/o productos de conveniencia, todo esto cumpliendo los reglamentos y normas establecidas para la responsable dispensación de medicamentos. Farmacia San Nicolás realizará la verificación de las recetas elaboradas por los profesionales autorizados y se reserva el derecho de poder negar despachos de medicinas que no estén acorde a lo autorizado por la DNM y a realizar devoluciones a nuestros clientes cuando sus recetas no coincidan con lo que dicte la ley vigente. El cliente tendrá acceso a la validación y verificación de las mismas a través de nuestro chat en línea antes de ejecutar la solicitud de su pedido, la receta será verificada por un dependiente de farmacia capacitado para la correcta orientación del paciente en la concentración, forma farmacéutica y cantidad especificada en su receta, sin modificar el principio activo prescrito.</p>
+    </div>
+    <div class="divider"></div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn waves-effect"><i class="material-icons">done</i></a>
+    </div>
+</div>
+<footer class="page-footer #e57373">
+</div>
+    </div>
+        <br>
+        <div class="container center footer-text">
+        <b>Enlaces de interés</b>
+        <br>
+        ---
+    </div>
+            <center>
+             <button type="submit" style="background-color: #ef9a9a " class="btn btn-primary btn-xs">Contacto</button>
+             <button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Enlaces</button>
+             <button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Proveedores</button>
+             <button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Red de médicos</button>
+             <button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Términos y condiciones</button>
+            </center>
+                    <div class="row pb-3">
+                        <div class="col-md-12">
+                            <br>
+                            <center>
+                            <div class="aside">
+                                <a title="Facebook" href="https://es-la.facebook.com/"><img src="../../resources/img/facebook_icon-icons.com_53612.png" width="50" height="50"></a>
+                                <a title="Instagram" href="https://www.instagram.com/Farma_Stuff"><img src="../../resources/img/Instagram_icon-icons.com_66804.png" width="50" height="50"></a>
+                                <a title="Twitter" href="https://twitter.com/?lang=es"><img src="../../resources/img/5294-twitter-i_102511.png" width="50" height="50"></a>
+                            </div>
+                        </center>
+                        </div>
+                    </div>
+                </div>
+
+<!--  En esta zona va el copyright de la página-->
+<div class="footer-copyright">
+<div class="container center footer-text">
+&copf; FarmaStuff - 2021
+</div>
+</div>
+</footer>
+<!--Importación de archivos JavaScript al final del cuerpo para una carga optimizada-->
+<script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script> 
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../app/helpers/components.js"></script>                
+<script type="text/javascript" src="../../resources/js/materialize.min.js"></script>              
+<script src="../../resources/js/init.js"></script>
+<script type="text/javascript" src="../../app/controllers/public/account.js"></script>
+<script type="text/javascript" src="../../app/controllers/public/clienteRegistro.js"></script>
+
+</body>
+</html>
