@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>FarmaStuff</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../../resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Googlefont -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="rgb(202, 104, 104)" role="navigation">
+        <div class="nav-wrapper container nav">
+            <a class="navbar-brand" href="#">
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+                <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
+                <a id="logo-container" href="#" class="brand-logo left-align">
+                    <i class="material-icons" style="font-style: oblique;"></i>
+                    <a href="../../views/public/index.html" class="right-align">
+                        <font color="#fff9c4" size="5"
+                            face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">FarmaStuff
+                        </font>
+                    </a>
+                </a>
+
+                <div id="password-modal" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center-align">Cambiar contraseña</h4>
+                        <form method="post" id="password-form">
+                            <div class="row center-align">
+                                <label>CLAVE NUEVA</label>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">security</i>
+                                    <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate"
+                                        required />
+                                    <label for="clave_nueva_1">Clave</label>
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">security</i>
+                                    <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate"
+                                        required />
+                                    <label for="clave_nueva_2">Confirmar clave</label>
+                                </div>
+                            </div>
+                            <div class="row center-align">
+                                <a href="#" class="btn waves-effect grey tooltipped modal-close"
+                                    data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                                <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i
+                                        class="material-icons">save</i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
+                    <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
+
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    </li>
+                    <li><input type="hidden" id="users" name="users" value="arwen" /> </li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
+                    <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
+                    <li><a href="../../views/public/login.html"
+                            class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                    <hr>
+                    <li><a href="../../views/public/receta.html">Compra con receta</a></li>
+                    <li><a href="../../views/public/recetaConSeguro.html">Compra con seguro</a></li>
+
+                    <hr>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#!">Medicinal</a></li>
+                        <li><a href="#!">Conveniencia</a></li>
+                    </ul>
+                    <ul id="dropdowns" class="dropdown-content">
+                        <li><a href="#" onclick="openPasswordDialog()"><i class="material-icons">lock</i>Cambiar
+                                clave</a></li>
+                        <li><a href="#" onclick="logOut()"><i class="material-icons">clear</i>Salir</a></li>
+                    </ul>
+                    <li>
+                        <!-- Dropdown Trigger -->
+                    <li><a href="http://34.125.24.157/app/reports/private/pedidofinal.php" target="_blank"
+                            class="btn waves-effect pink tooltipped" data-tooltip="Orden Final">Generar reporte<i
+                                class="material-icons">assignment</i></a></li>
+                    <li><a href="#" onclick="logOut()"><i class="material-icons">clear</i>Cerrar sesión</a></li>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+    <div class="navbars">
+    </div>
+    <div class="navbarsecond">
+    </div>
+
+    <nav class="red lighten-5" role="navigation">
+        <div class="nav-wrapper container nav">
+            <center>
+                <ul class="right hide-on-med-and-down">
+                    <!-- Dropdown Structure -->
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#!">Medicinal</a></li>
+                        <li><a href="#!">Conveniencia</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
+                    </ul>
+                    <li>
+                        <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger btn red lighten-2" href="#!" data-target="dropdown1">Categorías<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                    </li>
+                    <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
+                    <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
+                    <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a>
+                    </li>
+                    <!--<li><input type="text" class="searchTerm" placeholder="Buscar producto..."></li>
+                        <li><a href="#" class="btn-floating"><i class="material-icons">search</i></a></li>-->
+                    <li><a href="carritoCompras.html"
+                            class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i
+                                class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
+                    <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
+                    <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a>
+                    </li>
+                </ul>
+            </center>
+        </div>
+    </nav>
+
+    <!-- ---------------------------------------------------------------------------------------------->
+    <main>
+
+        <!--Aquí comenzamos abriendo la sección -->
+        <main>
+
+            <br>
+
+            <div class="container section">
+                <div class="row">
+                    <div class="col s12 m6 l4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="../../resources/img/Vick.png" width="250" height="200">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Vick<i
+                                        class="material-icons right">more_vert</i></span>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Más sobre el proveedor<i
+                                        class="material-icons right">close</i></span>
+                                <p>
+                                    Está especializacada en jarabes, unguentos, pastillas que tratan resfriados.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l4">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <img class="activator" src="../../resources/img/Bayer.png" width="250" height="200">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">Bayer<i
+                                            class="material-icons right">more_vert</i></span>
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">Más sobre el proveedor<i
+                                            class="material-icons right">close</i></span>
+                                    <p>
+                                        Bayer AG es una empresa químico-farmacéutica alemana fundada en Barmen, Alemania
+                                        en 1863.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s12 m6 l4">
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img class="activator" src="../../resources/img/Gsk.png" width="250" height="200">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-title activator grey-text text-darken-4">GSK<i
+                                                class="material-icons right">more_vert</i></span>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Más sobre el proveedor<i
+                                                class="material-icons right">close</i></span>
+                                        <p>
+                                            GlaxoSmithKline es una empresa británica de productos farmacéuticos, productos de cuidado dental y de cuidado de la salud. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        <div class="row">
+                            <div class="col s12 m6 l4">
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img class="activator" src="../../resources/img/Lopez.png" width="250" height="200">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-title activator grey-text text-darken-4">Laboratiorios López<i
+                                                class="material-icons right">more_vert</i></span>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Más sobre el proveedor<i
+                                                class="material-icons right">close</i></span>
+                                        <p>
+                                            Somos una empresa farmacéutica, dedicada a la fabricación, comercialización y distribución de productos farmacéuticos y equipos médicos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        <div class="row">
+                            <div class="col s12 m6 l4">
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img class="activator" src="../../resources/img/Suizos.png" width="250" height="200">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-title activator grey-text text-darken-4">Laboratiorios Suizos<i
+                                                class="material-icons right">more_vert</i></span>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Más sobre el proveedor<i
+                                                class="material-icons right">close</i></span>
+                                        <p>
+                                            Somos una empresa farmacéutica, dedicada a la fabricación, comercialización y distribución de productos farmacéuticos y equipos médicos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        <div class="row">
+                            <div class="col s12 m6 l4">
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img class="activator" src="../../resources/img/Nipro.png" width="250" height="200">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-title activator grey-text text-darken-4">Nipro<i
+                                                class="material-icons right">more_vert</i></span>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4">Más sobre el proveedor<i
+                                                class="material-icons right">close</i></span>
+                                        <p>
+                                            Nipro ha sido un líder mundial en el suministro de productos médicos a la comunidad de la salud por más de 60 años.                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="col-lg-3 align-self-center">
+                            <div class="fixed-action-btn">
+                                <a href="carritoCompras.html" class="btn-floating btn-large red lighten-1"><i
+                                        class="material-icons" style="font-style: unset;">add_shopping_cart</i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+            </div>
+        </main>
+
+
+
+
+
+    </main>
+    <footer class="page-footer #e57373">
+        </div>
+        </div>
+        <br>
+        <div class="container center footer-text">
+            <b>Enlaces de interés</b>
+            <br>
+            ---
+        </div>
+        <center>
+            <a href="contactos.html"><button type="submit" style="background-color: #ef9a9a " class="btn btn-primary btn-xs">Contacto</button></a>
+            <a href="proveedores.html"><button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Proveedores</button></a>
+            <a href="medicos.html"><button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Red de médicos</button></a>
+            <a href="terminosycondiciones.html"><button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Términos y condiciones</button></a>
+        </center>
+        <div class="row pb-3">
+            <div class="col-md-12">
+                <br>
+                <center>
+                    <div class="aside">
+                        <a title="Facebook" href="https://es-la.facebook.com/"><img
+                                src="../../resources/img/facebook_icon-icons.com_53612.png" width="50" height="50"></a>
+                        <a title="Instagram" href="https://www.instagram.com/Farma_Stuff"><img
+                                src="../../resources/img/Instagram_icon-icons.com_66804.png" width="50" height="50"></a>
+                        <a title="Twitter" href="https://twitter.com/?lang=es"><img
+                                src="../../resources/img/5294-twitter-i_102511.png" width="50" height="50"></a>
+                    </div>
+                </center>
+            </div>
+        </div>
+        </div>
+
+        <!--  En esta zona va el copyright de la página-->
+        <div class="footer-copyright">
+            <div class="container center footer-text">
+                &copf; FarmaStuff - 2021
+            </div>
+        </div>
+    </footer>
+    <!--Importación de archivos JavaScript al final del cuerpo para una carga optimizada-->
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../app/helpers/components.js"></script>
+    <script type="text/javascript" src="../../resources/js/materialize.min.js"></script>
+    <script src="../../resources/js/init.js"></script>
+    <script type="text/javascript" src="../../app/controllers/public/account.js"></script>
+    <script type="text/javascript" src="../../app/controllers/public/index.js"></script>
+
+</body>
+
+</html>

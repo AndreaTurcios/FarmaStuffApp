@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>FarmaStuff</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../resources/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../../resources/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Googlefont -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="rgb(202, 104, 104)" role="navigation">
+        <div class="nav-wrapper container nav">
+            <a class="navbar-brand" href="#">
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+                <img src="../../resources/img/logoconpng.png" width="95" height="70" class="left">
+                <a id="logo-container" href="#" class="brand-logo left-align">
+                    <i class="material-icons" style="font-style: oblique;"></i>
+                    <a href="../../views/public/index.html" class="right-align">
+                        <font color="#fff9c4" size="5"
+                            face="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg">FarmaStuff
+                        </font>
+                    </a>
+                </a>
+
+                <div id="password-modal" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center-align">Cambiar contraseña</h4>
+                        <form method="post" id="password-form">
+                            <div class="row center-align">
+                                <label>CLAVE NUEVA</label>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">security</i>
+                                    <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate"
+                                        required />
+                                    <label for="clave_nueva_1">Clave</label>
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">security</i>
+                                    <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate"
+                                        required />
+                                    <label for="clave_nueva_2">Confirmar clave</label>
+                                </div>
+                            </div>
+                            <div class="row center-align">
+                                <a href="#" class="btn waves-effect grey tooltipped modal-close"
+                                    data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                                <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i
+                                        class="material-icons">save</i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
+                    <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
+
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    </li>
+                    <li><input type="hidden" id="users" name="users" value="arwen" /> </li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="../../views/public/quienesSomos.html">Conócenos</a></li>
+                    <li><a href="../../views/public/sucursales.html">Sucursales</a></li>
+                    <li><a href="../../views/public/login.html"
+                            class="btn red black-text waves-effect waves-blue-grey lighten-1">Iniciar sesión</a></li>
+                    <hr>
+                    <li><a href="../../views/public/receta.html">Compra con receta</a></li>
+                    <li><a href="../../views/public/recetaConSeguro.html">Compra con seguro</a></li>
+
+                    <hr>
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#!">Medicinal</a></li>
+                        <li><a href="#!">Conveniencia</a></li>
+                    </ul>
+                    <ul id="dropdowns" class="dropdown-content">
+                        <li><a href="#" onclick="openPasswordDialog()"><i class="material-icons">lock</i>Cambiar
+                                clave</a></li>
+                        <li><a href="#" onclick="logOut()"><i class="material-icons">clear</i>Salir</a></li>
+                    </ul>
+                    <li>
+                        <!-- Dropdown Trigger -->
+                    <li><a href="http://34.125.24.157/app/reports/private/pedidofinal.php" target="_blank"
+                            class="btn waves-effect pink tooltipped" data-tooltip="Orden Final">Generar reporte<i
+                                class="material-icons">assignment</i></a></li>
+                    <li><a href="#" onclick="logOut()"><i class="material-icons">clear</i>Cerrar sesión</a></li>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+    <div class="navbars">
+    </div>
+    <div class="navbarsecond">
+    </div>
+
+    <nav class="red lighten-5" role="navigation">
+        <div class="nav-wrapper container nav">
+            <center>
+                <ul class="right hide-on-med-and-down">
+                    <!-- Dropdown Structure -->
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href="#!">Medicinal</a></li>
+                        <li><a href="#!">Conveniencia</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../../views/public/ofertas.html">Ofertas</a></li>
+                    </ul>
+                    <li>
+                        <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger btn red lighten-2" href="#!" data-target="dropdown1">Categorías<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                    </li>
+                    <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
+                    <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
+                    <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a>
+                    </li>
+                    <!--<li><input type="text" class="searchTerm" placeholder="Buscar producto..."></li>
+                        <li><a href="#" class="btn-floating"><i class="material-icons">search</i></a></li>-->
+                    <li><a href="carritoCompras.html"
+                            class="red lighten-2 waves-effect waves-light red btn btn-floating btn btn-danger "><i
+                                class="material-icons" style="font-style: unset;">add_shopping_cart</i></a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="sidenav">
+                    <li><a href="../../views/public/ofertas.html" style="color:black;">Ofertas</a></li>
+                    <li><a href="../../views/public/receta.html" style="color:black;">Compra con receta</a></li>
+                    <li><a href="../../views/public/recetaConSeguro.html" style="color:black;">Compra con seguro</a>
+                    </li>
+                </ul>
+            </center>
+        </div>
+    </nav>
+
+    <!-- ---------------------------------------------------------------------------------------------->
+    <main>
+
+        <!--Aquí comenzamos abriendo la sección -->
+        <main>
+
+            <br>
+
+
+            
+<div class="section">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <!--Se cambia el color del fondo-->
+            <div class="card-panel caption center-align red lighten-2">
+                <!--Se cambia el color de la letra-->
+                <span class=" white-text text-white">
+                    <h4>Términos y condiciones</h4>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class= "container"> 
+<div class="section">
+    <span">
+        <h3>Uso</h3>
+        <p>1. Información importante
+            Debe leer cuidadosamente los siguientes términos y condiciones. La compra o uso de nuestros productos
+            implica que usted ha leído y aceptado estos términos y condiciones. Las plantillas ofrecidas en esta web son
+            creadas, presentadas, cobradas y enviadas por Grupoweb Deportiva SLU, a través de sistemas técnicos propios
+            y ajenos , y están sujetas a sus propios términos y condiciones.</p>
+        <p>
+            2. Licencia
+            Nuestro sitio web le concede una licencia limitada no exclusiva para utilizar los productos vendidos en
+            nuestro sitio web (paginas web gestionables, en adelante "productos") de acuerdo con estos términos y
+            condiciones acordados por nuestra compañía.</p>
+        <p>
+            a) USO LIMITADO
+            Usted (Persona física, Club, Sociedad, Asociación.. en adelante Usted) puede utilizar cada producto
+            individual en un solo sitio web, perteneciendo éste a usted. Para hacer otro proyecto con el mismo diseño,
+            deberá comprar el mismo producto otra vez.</p>
+        <p>
+            b) USO NO AUTORIZADO
+            Usted no puede colocar uno de nuestros productos, modificado o sin modificar, en un disquete, CD, sitio web
+            o ningún otro medio y ofrecerlos para la redistribución o la reventa de ningún tipo sin el consentimiento
+            previo por escrito de nuestra compañía.</p>
+        <p>
+            c) ASIGNABILIDAD
+            Usted no puede sub-licenciar, asignar, o transferir esta licencia a cualquier persona sin consentimiento
+            escrito de nuestra compañía.</p>
+        <p>
+            d) PROPIEDAD
+            Usted no puede declarar propiedad intelectual o exclusiva a ninguno de nuestros productos, modificado o sin
+            modificar. Todos los productos son propiedad independiente de los proveedores del contenido.</p>
+        <p>
+            Usted es el propietario del contenido que introduzca en los productos. Este contenido lo compondran: textos
+            , imagenes, documentos y bases de datos.</p>
+        <p>
+            e) GARANTIA
+            Nuestros productos se proporcionan "tal cual" sin ningún tipo de garantía, expresa o implícita. En ningún
+            caso seremos responsables de ningún daño incluyendo, pero no limitado a, daños directos, indirectos,
+            especiales, fortuitos o consecuentes u otras pérdidas resultantes del uso o de la imposibilidad de utilizar
+            nuestros productos.</p>
+        <p>
+            3. Política de reembolso
+            Puesto que nuestra compañía está ofreciendo mercancías irrevocables no-tangibles, no realizamos reembolsos
+            después de que se envíe el producto, el cual usted es responsable de entender antes de comprar cualquier
+            artículo en nuestro sitio web. Por favor, asegúrese de haber probado y comprobado nuestra web en el sitio de
+            prueba que indicamos en este website . Hacemos solamente excepciones con esta regla cuando la descripción no
+            se ajusta al producto.</p>
+
+        <p>El plazo para cualquier solicitud de reembolso es de 14 días después de la fecha de adquisición.</p>
+
+        <p>
+            4. Comprobación antifraude
+            La compra del cliente puede ser aplazada para la comprobación antifraude manual durante 2-3 dias. También
+            puede ser suspendida por más tiempo (alrededor de 20 horas) para una investigación más rigurosa, para evitar
+            transacciones fraudulentas.</p>
+        <p>
+            5. Instalación de los productos
+            La instalación de los productos está incluida en el precio.</p>
+        <p>
+            Nuestra compañía se reserva los derechos de cambiar o de modificar estos términos sin previo aviso.</p>
+    </span>
+
+</div>
+</div>
+
+            <div class="col-lg-3 align-self-center">
+                <div class="fixed-action-btn">
+                    <a href="carritoCompras.html" class="btn-floating btn-large red lighten-1"><i class="material-icons"
+                            style="font-style: unset;">add_shopping_cart</i></a>
+
+                </div>
+            </div>
+            </div>
+            </div>
+            </section>
+            </div>
+        </main>
+
+
+
+
+
+    </main>
+    <footer class="page-footer #e57373">
+        </div>
+        </div>
+        <br>
+        <div class="container center footer-text">
+            <b>Enlaces de interés</b>
+            <br>
+            ---
+        </div>
+        <center>
+            <a href="contactos.html"><button type="submit" style="background-color: #ef9a9a " class="btn btn-primary btn-xs">Contacto</button></a>
+            <a href="proveedores.html"><button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Proveedores</button></a>
+            <a href="medicos.html"><button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Red de médicos</button></a>
+            <a href="terminosycondiciones.html"><button type="submit" style="background-color: #ef9a9a" class="btn btn-primary btn-xs">Términos y condiciones</button></a>
+        </center>
+        <div class="row pb-3">
+            <div class="col-md-12">
+                <br>
+                <center>
+                    <div class="aside">
+                        <a title="Facebook" href="https://es-la.facebook.com/"><img
+                                src="../../resources/img/facebook_icon-icons.com_53612.png" width="50" height="50"></a>
+                        <a title="Instagram" href="https://www.instagram.com/Farma_Stuff"><img
+                                src="../../resources/img/Instagram_icon-icons.com_66804.png" width="50" height="50"></a>
+                        <a title="Twitter" href="https://twitter.com/?lang=es"><img
+                                src="../../resources/img/5294-twitter-i_102511.png" width="50" height="50"></a>
+                    </div>
+                </center>
+            </div>
+        </div>
+        </div>
+
+        <!--  En esta zona va el copyright de la página-->
+        <div class="footer-copyright">
+            <div class="container center footer-text">
+                &copf; FarmaStuff - 2021
+            </div>
+        </div>
+    </footer>
+    <!--Importación de archivos JavaScript al final del cuerpo para una carga optimizada-->
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../app/helpers/components.js"></script>
+    <script type="text/javascript" src="../../resources/js/materialize.min.js"></script>
+    <script src="../../resources/js/init.js"></script>
+    <script type="text/javascript" src="../../app/controllers/public/account.js"></script>
+    <script type="text/javascript" src="../../app/controllers/public/index.js"></script>
+
+</body>
+
+</html>
